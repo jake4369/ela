@@ -3,52 +3,52 @@ import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import { HoverBorderGradient } from "./hover-border-gradient";
-import { AnimatedTooltip } from "./animated-tooltip";
+// import { AnimatedTooltip } from "./animated-tooltip";
 
-const items = [
-  {
-    id: 0,
-    name: "Youtube Channel",
-    designation: "Visit Our",
-    image: "/assets/images/hero/youtube.png",
-    link: "https://www.youtube.com/channel/UCXUiMX2wjP0JDveKzFt9P5A",
-  },
-  {
-    id: 1,
-    name: "Tiktok Channel",
-    designation: "Visit Our",
-    image: "/assets/images/hero/tiktok.png",
-    link: "https://www.tiktok.com/@ela_pressure_washing",
-  },
-  {
-    id: 2,
-    name: "Instagram Page",
-    designation: "Visit Our",
-    image: "/assets/images/hero/instagram.png",
-    link: "https://www.instagram.com/ela.pressurewashing/",
-  },
-  {
-    id: 3,
-    name: "Facebook Page",
-    designation: "Visit Our",
-    image: "/assets/images/hero/facebook.svg",
-    link: "https://www.yell.com/biz/ela-pressure-washing-driveway-cleaning-and-sealing-wolverhampton-10441878/",
-  },
-  {
-    id: 4,
-    name: "Yell Profile",
-    designation: "Visit Our",
-    image: "/assets/images/hero/yell.png",
-    link: "https://www.yell.com/biz/ela-pressure-washing-driveway-cleaning-and-sealing-wolverhampton-10441878/",
-  },
-  {
-    id: 5,
-    name: "Google Business",
-    designation: "Visit Our",
-    image: "/assets/images/hero/google.jpg",
-    link: "https://g.co/kgs/nthdDc2",
-  },
-];
+// const items = [
+//   {
+//     id: 0,
+//     name: "Youtube Channel",
+//     designation: "Visit Our",
+//     image: "/assets/images/hero/youtube.png",
+//     link: "https://www.youtube.com/channel/UCXUiMX2wjP0JDveKzFt9P5A",
+//   },
+//   {
+//     id: 1,
+//     name: "Tiktok Channel",
+//     designation: "Visit Our",
+//     image: "/assets/images/hero/tiktok.png",
+//     link: "https://www.tiktok.com/@ela_pressure_washing",
+//   },
+//   {
+//     id: 2,
+//     name: "Instagram Page",
+//     designation: "Visit Our",
+//     image: "/assets/images/hero/instagram.png",
+//     link: "https://www.instagram.com/ela.pressurewashing/",
+//   },
+//   {
+//     id: 3,
+//     name: "Facebook Page",
+//     designation: "Visit Our",
+//     image: "/assets/images/hero/facebook.svg",
+//     link: "https://www.yell.com/biz/ela-pressure-washing-driveway-cleaning-and-sealing-wolverhampton-10441878/",
+//   },
+//   {
+//     id: 4,
+//     name: "Yell Profile",
+//     designation: "Visit Our",
+//     image: "/assets/images/hero/yell.png",
+//     link: "https://www.yell.com/biz/ela-pressure-washing-driveway-cleaning-and-sealing-wolverhampton-10441878/",
+//   },
+//   {
+//     id: 5,
+//     name: "Google Business",
+//     designation: "Visit Our",
+//     image: "/assets/images/hero/google.jpg",
+//     link: "https://g.co/kgs/nthdDc2",
+//   },
+// ];
 
 export const HeroParallax = ({ products }) => {
   const firstRow = products.slice(0, 5);
@@ -89,7 +89,7 @@ export const HeroParallax = ({ products }) => {
   return (
     <div
       ref={ref}
-      className="h-[1800px] md:h-[2000px] pt-40 mb-20 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[2000px] pt-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -150,9 +150,9 @@ export const Header = () => {
         Contact Us
       </HoverBorderGradient>
 
-      <div className="flex">
+      {/* <div className="flex">
         <AnimatedTooltip items={items} />
-      </div>
+      </div> */}
     </div>
   );
 };
