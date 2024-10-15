@@ -1,5 +1,6 @@
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import AboutSection from "@/components/about/AboutSection";
+import Services from "@/components/services/Services";
 
 const products = [
   {
@@ -38,6 +39,8 @@ const Home = () => {
   return (
     <>
       <HeroParallax products={products} />
+      <AboutSection />
+      <Services />
       <AboutSection />
     </>
   );
