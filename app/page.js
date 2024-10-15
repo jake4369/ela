@@ -41,7 +41,6 @@ const Home = () => {
       <HeroParallax products={products} />
       <AboutSection />
       <Services />
-      <AboutSection />
     </>
   );
 };
