@@ -1,7 +1,11 @@
-import React from "react";
+import { FeaturesSectionDemo } from "../ui/features-section";
 
 const AboutSection = () => {
-  return <section>About Section</section>;
+  return (
+    <>
+      <FeaturesSectionDemo />
+    </>
+  );
 };
 
 export default AboutSection;
