@@ -3,9 +3,11 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 
 export function FeaturesSectionDemo() {
   const features = [
@@ -120,6 +122,7 @@ export function Video() {
       height="240"
       controls
       preload="none"
+      poster="/assets/images/about/thumbnail.png"
       className="w-full object-cover object-center rounded-sm"
     >
       <source src="/assets/images/about/pool.mp4" type="video/mp4" />
@@ -128,13 +131,37 @@ export function Video() {
   );
 }
 
+// export const SkeletonThree = () => {
+//   return (
+//     <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
+//       <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
+//         <Video />
+//       </div>
+//     </div>
+//   );
+// };
+
 export const SkeletonThree = () => {
   return (
-    <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
-      <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
-        <Video />
+    <Link
+      href="https://youtu.be/O1wEn-y1j-w?si=2ZxxxmS4FbLpZIu0"
+      target="__blank"
+      className="relative flex gap-10  h-full group/image"
+    >
+      <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
+        <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
+          {/* TODO */}
+          <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " />
+          <Image
+            src="/assets/images/about/thumbnail.png"
+            alt="header"
+            width={800}
+            height={800}
+            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
+          />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
