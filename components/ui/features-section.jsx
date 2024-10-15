@@ -127,7 +127,7 @@ export function Video() {
       height="240"
       controls
       preload="none"
-      className="object-cover object-center rounded-sm"
+      className="w-full object-cover object-center rounded-sm"
     >
       <source src="/assets/images/about/pool.mp4" type="video/mp4" />
       Your browser does not support the video tag.
@@ -139,15 +139,6 @@ export const SkeletonThree = () => {
   return (
     <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
       <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
-        {/* TODO */}
-        {/* <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " />
-          <Image
-            src=""
-            alt="header"
-            width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
-          /> */}
         <Video />
       </div>
     </div>
@@ -177,7 +168,6 @@ export const SkeletonTwo = () => {
   };
   return (
     <div className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
-      {/* TODO */}
       <div className="flex flex-row -ml-20">
         {images.map((image, idx) => (
           <motion.div
