@@ -146,7 +146,7 @@ export const Header = () => {
         keep your property looking its best.
       </p>
 
-      <HoverBorderGradient containerClassName="mb-24">
+      <HoverBorderGradient className="py-4 px-8 text-xl">
         Contact Us
       </HoverBorderGradient>
 
