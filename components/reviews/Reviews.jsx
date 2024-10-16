@@ -36,7 +36,6 @@ const testimonials = [
     quote:
       "Fantastic results. We have recently had our drive and roof steam cleaned and the results are amazing!! it's completely transformed our house. Tom offers a very unique service with the equipment he uses and the knowledge he has . The team at ELA were professional and courteous of our neighbours. We will be definitely be using this company again in the future. Thanks guys.",
     name: "Noble Lofts ltd",
-    // title: "A Tale of Two Cities",
   },
   {
     quote:
@@ -71,7 +70,7 @@ const Reviews = () => {
         to be part of keeping your property looking its best.
       </p>
 
-      <InfiniteMovingCards items={testimonials} speed="slow" />
+      <InfiniteMovingCards items={testimonials} speed="normal" />
     </section>
   );
 };
