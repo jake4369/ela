@@ -62,10 +62,9 @@ const content = [
 ];
 
 const Page = () => {
-  //   return <StickyScroll content={content} />;
   return (
     <>
-      <LampDemo />
+      <LampDemo>Our Services</LampDemo>
       <TracingBeam>
         {content.map((obj) => (
           <div
