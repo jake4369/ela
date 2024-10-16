@@ -1,8 +1,6 @@
 import { ParallaxScroll } from "@/components/ui/parallax-scroll";
 import LampDemo from "@/components/ui/lamp";
 
-import { motion } from "framer-motion";
-
 const images = [
   "/assets/images/gallery/1.jpg",
   "/assets/images/gallery/2.jpg",
@@ -27,7 +25,6 @@ const images = [
   "/assets/images/gallery/21.jpg",
   "/assets/images/gallery/22.jpg",
   "/assets/images/gallery/23.jpg",
-  //   "/assets/images/gallery/24.jpg",
   "/assets/images/gallery/25.jpg",
   "/assets/images/gallery/26.jpg",
   "/assets/images/gallery/27.jpeg",
