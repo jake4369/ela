@@ -1,6 +1,7 @@
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import AboutSection from "@/components/about/AboutSection";
 import Services from "@/components/services/Services";
+import OurWork from "@/components/work/OurWork";
 
 const products = [
   {
@@ -41,6 +42,7 @@ const Home = () => {
       <HeroParallax products={products} />
       <AboutSection />
       <Services />
+      <OurWork />
     </>
   );
 };
