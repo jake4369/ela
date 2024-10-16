@@ -98,7 +98,7 @@ const FeatureDescription = ({ children }) => {
 export const SkeletonOne = () => {
   return (
     <div className="relative flex py-8 px-2 gap-10 h-full">
-      <div className="w-full  p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
+      <div className="w-full  px-5 md:p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           {/* TODO */}
           <Image
@@ -106,7 +106,7 @@ export const SkeletonOne = () => {
             alt="header"
             width={800}
             height={800}
-            className="w-full aspect-square object-cover object-left-top rounded-sm"
+            className="w-full md:max-h-[470px] aspect-square object-cover object-left-top rounded-sm"
           />
         </div>
       </div>
@@ -144,25 +144,25 @@ export function Video() {
 
 export const SkeletonThree = () => {
   return (
-    <Link
-      href="https://www.youtube.com/@elapressurewashing5332/videos"
-      target="__blank"
-      className="relative flex gap-10  h-full group/image"
-    >
-      <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
-          {/* TODO */}
-          <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " />
-          <Image
-            src="/assets/images/about/thumbnail.png"
-            alt="header"
-            width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
-          />
-        </div>
+    // <Link
+    //   href="https://www.youtube.com/@elapressurewashing5332/videos"
+    //   target="__blank"
+    //   className="relative flex gap-10  h-full group/image"
+    // >
+    <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
+      <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
+        {/* TODO */}
+        {/* <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " /> */}
+        <Image
+          src="/assets/images/about/reviews.svg"
+          alt="header"
+          width={800}
+          height={800}
+          className=" w-full aspect-square object-cover object-center rounded-sm blur-none"
+        />
       </div>
-    </Link>
+    </div>
+    // </Link>
   );
 };
 
