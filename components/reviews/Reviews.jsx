@@ -61,16 +61,20 @@ const testimonials = [
 
 const Reviews = () => {
   return (
-    <section>
+    <section className="mb-20 w-[87.2%] mx-auto lg:w-[77.0833333333%]">
       <SparklesPreview />
-      <p className="mb-20 w-[87.2%] mx-auto lg:w-[50%] text-center ">
+      <p className="mb-20 lg:w-[60%] mx-auto text-center ">
         You matter to us and your satisfaction is our top priority. Every job is
         an opportunity to earn your trust and show our commitment to excellent
         service. Your support drives our growth and success, and we’re grateful
         to be part of keeping your property looking its best.
       </p>
 
-      <InfiniteMovingCards items={testimonials} speed="normal" />
+      <InfiniteMovingCards
+        items={testimonials}
+        speed="slow"
+        className="mb-10"
+      />
     </section>
   );
 };
