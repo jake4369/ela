@@ -39,7 +39,7 @@ const ServiceCard = ({ icon, heading, description }) => {
 
 const Services = () => {
   return (
-    <section className="flex flex-col w-[87.2%] md:w-[77.0833333333%] text-center mx-auto mb-60">
+    <section className="flex flex-col w-[87.2%] md:w-[77.0833333333%] text-center mx-auto mb-20">
       <h2 className="text-3xl md:text-5xl mb-14  text-center">Our Services</h2>
 
       <p className="mb-20">
