@@ -35,7 +35,7 @@ const images = [
 
 const Page = () => {
   return (
-    <div>
+    <div className="mb-80">
       <LampDemo>Gallery</LampDemo>
       <ParallaxScroll images={images} />
     </div>
