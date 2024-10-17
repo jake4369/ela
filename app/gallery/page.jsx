@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ParallaxScroll } from "@/components/ui/parallax-scroll";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { FocusCards } from "@/components/ui/focus-cards";
@@ -21,6 +20,7 @@ function SpotlightPreview() {
           through our work to see the results we’ve delivered for satisfied
           customers, and discover how we can bring new life to your property.
         </p>
+
         <div className="flex mx-auto gap-4">
           <Link href="#images" className="">
             <HoverBorderGradient className="py-4">
