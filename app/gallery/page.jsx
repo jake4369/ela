@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ParallaxScroll } from "@/components/ui/parallax-scroll";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { FocusCards } from "@/components/ui/focus-cards";
 
 function SpotlightPreview() {
   return (
@@ -20,43 +21,74 @@ function SpotlightPreview() {
           through our work to see the results we’ve delivered for satisfied
           customers, and discover how we can bring new life to your property.
         </p>
-        <Link href="#images" className="mx-auto">
-          <HoverBorderGradient className="py-4">
-            View Images
-          </HoverBorderGradient>
-        </Link>
+        <div className="flex mx-auto gap-4">
+          <Link href="#images" className="">
+            <HoverBorderGradient className="py-4">
+              View Images
+            </HoverBorderGradient>
+          </Link>
+
+          <Link href="#videos" className="mx-auto">
+            <HoverBorderGradient className="py-4">
+              View Videos
+            </HoverBorderGradient>
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
 
 const images = [
-  "/assets/images/gallery/1.jpg",
-  "/assets/images/gallery/2.jpg",
-  "/assets/images/gallery/3.jpg",
-  "/assets/images/gallery/4.jpg",
-  "/assets/images/gallery/5.jpg",
-  "/assets/images/gallery/6.jpg",
-  "/assets/images/gallery/7.jpg",
-  "/assets/images/gallery/8.jpg",
-  "/assets/images/gallery/9.jpg",
-  "/assets/images/gallery/10.jpg",
-  "/assets/images/gallery/11.jpg",
-  "/assets/images/gallery/12.jpg",
-  "/assets/images/gallery/13.jpg",
-  "/assets/images/gallery/14.jpg",
-  "/assets/images/gallery/15.jpg",
-  "/assets/images/gallery/16.jpg",
-  "/assets/images/gallery/17.jpg",
-  "/assets/images/gallery/18.jpg",
-  "/assets/images/gallery/19.jpg",
-  "/assets/images/gallery/20.jpg",
-  "/assets/images/gallery/21.jpg",
-  "/assets/images/gallery/22.jpg",
-  "/assets/images/gallery/23.jpg",
-  "/assets/images/gallery/25.jpg",
-  "/assets/images/gallery/26.jpg",
-  "/assets/images/gallery/27.jpeg",
+  { title: "Example of our work", src: "/assets/images/gallery/1.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/2.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/3.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/4.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/5.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/6.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/7.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/8.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/9.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/10.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/11.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/12.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/13.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/14.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/15.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/16.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/17.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/18.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/19.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/20.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/21.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/22.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/23.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/25.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/26.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/27.jpeg" },
+  //   "/assets/images/gallery/4.jpg",
+  //   "/assets/images/gallery/5.jpg",
+  //   "/assets/images/gallery/6.jpg",
+  //   "/assets/images/gallery/7.jpg",
+  //   "/assets/images/gallery/8.jpg",
+  //   "/assets/images/gallery/9.jpg",
+  //   "/assets/images/gallery/10.jpg",
+  //   "/assets/images/gallery/11.jpg",
+  //   "/assets/images/gallery/12.jpg",
+  //   "/assets/images/gallery/13.jpg",
+  //   "/assets/images/gallery/14.jpg",
+  //   "/assets/images/gallery/15.jpg",
+  //   "/assets/images/gallery/16.jpg",
+  //   "/assets/images/gallery/17.jpg",
+  //   "/assets/images/gallery/18.jpg",
+  //   "/assets/images/gallery/19.jpg",
+  //   "/assets/images/gallery/20.jpg",
+  //   "/assets/images/gallery/21.jpg",
+  //   "/assets/images/gallery/22.jpg",
+  //   "/assets/images/gallery/23.jpg",
+  //   "/assets/images/gallery/25.jpg",
+  //   "/assets/images/gallery/26.jpg",
+  //   "/assets/images/gallery/27.jpeg",
 ];
 
 const Page = () => {
@@ -64,9 +96,12 @@ const Page = () => {
     <div>
       <SpotlightPreview />
 
-      <div id="images">
-        <ParallaxScroll images={images} />
+      <div id="images" className="mb-40 w-[87.2%] mx-auto">
+        {/* <ParallaxScroll images={images} /> */}
+        <FocusCards cards={images} />
       </div>
+
+      <div id="videos">Videos</div>
     </div>
   );
 };
