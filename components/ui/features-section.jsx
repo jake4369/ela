@@ -3,12 +3,9 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { IconBrandYoutubeFilled } from "@tabler/icons-react";
-import { Spotlight } from "./spotlight";
 
 export function FeaturesSectionDemo() {
   const features = [
@@ -132,27 +129,10 @@ export function Video() {
   );
 }
 
-// export const SkeletonThree = () => {
-//   return (
-//     <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
-//       <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
-//         <Video />
-//       </div>
-//     </div>
-//   );
-// };
-
 export const SkeletonThree = () => {
   return (
-    // <Link
-    //   href="https://www.youtube.com/@elapressurewashing5332/videos"
-    //   target="__blank"
-    //   className="relative flex gap-10  h-full group/image"
-    // >
     <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
       <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
-        {/* TODO */}
-        {/* <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " /> */}
         <Image
           src="/assets/images/about/reviews.svg"
           alt="header"
@@ -162,7 +142,6 @@ export const SkeletonThree = () => {
         />
       </div>
     </div>
-    // </Link>
   );
 };
 
