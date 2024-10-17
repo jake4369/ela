@@ -42,7 +42,7 @@ const Services = () => {
     <section className="flex flex-col w-[87.2%] md:w-[77.0833333333%] text-center mx-auto mb-20">
       <h2 className="text-3xl md:text-5xl mb-14  text-center">Our Services</h2>
 
-      <p className="mb-20 mx-auto lg:w-[60%]">
+      <p className="text-center mb-8 md:mb-20 md:w-[77.0833333333%] lg:w-[70%] mx-auto">
         We offer expert pressure washing, steam cleaning and surface care to
         refresh and protect your property. From deep cleaning tough stains to
         gentle soft washing for delicate surfaces, we handle it all. Our

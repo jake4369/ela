@@ -63,7 +63,7 @@ const Reviews = () => {
   return (
     <section className="mb-20 w-[87.2%] mx-auto lg:w-[77.0833333333%]">
       <SparklesPreview />
-      <p className="mb-20 lg:w-[60%] mx-auto text-center ">
+      <p className="text-center mb-8 md:mb-16 md:w-[77.0833333333%] lg:w-[70%] mx-auto">
         You matter to us and your satisfaction is our top priority. Every job is
         an opportunity to earn your trust and show our commitment to excellent
         service. Your support drives our growth and success, and we’re grateful

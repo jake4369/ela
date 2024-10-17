@@ -12,7 +12,7 @@ function AppleCardsCarouselDemo() {
       <h2 className="max-w-7xl text-center mb-14 pl-4 mx-auto text-3xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
         Our Work
       </h2>
-      <p className="text-center mb-20 lg:w-[60%] mx-auto">
+      <p className="text-center md:w-[77.0833333333%] lg:w-[70%] mx-auto">
         We take immense pride in delivering top-tier pressure washing services
         that leave surfaces looking brand new. From driveways and decks to
         commercial properties, our results speak for themselves. Explore some of
