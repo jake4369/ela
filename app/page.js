@@ -3,6 +3,7 @@ import AboutSection from "@/components/about/AboutSection";
 import Services from "@/components/services/Services";
 import OurWork from "@/components/work/OurWork";
 import Reviews from "@/components/reviews/Reviews";
+import FAQSection from "@/components/faqs/FAQSection";
 
 const products = [
   {
@@ -45,6 +46,7 @@ const Home = () => {
       <Services />
       <OurWork />
       <Reviews />
+      <FAQSection />
     </>
   );
 };
