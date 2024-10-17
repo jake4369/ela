@@ -1,6 +1,38 @@
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import LampDemo from "@/components/ui/lamp";
+import { Spotlight } from "@/components/ui/spotlight";
+
+function SpotlightPreview() {
+  return (
+    <div className=" h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden">
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+      <div className="flex flex-col p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+        <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+          Our Services
+        </h1>
+        <div className="relative">
+          <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-10">
+            We provide professional cleaning and maintenance services to keep
+            your property in top shape. From pressure washing to soft washing,
+            roof cleaning, and sealing, our expert team handles all your outdoor
+            care needs. With a focus on quality and eco-friendly solutions, we
+            ensure your home or business looks great and stays protected.
+            Explore our services below!
+          </p>
+
+          <div class="scroll-downs">
+            <div class="mousey">
+              <div class="scroller"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const content = [
   {
@@ -64,7 +96,8 @@ const content = [
 const Page = () => {
   return (
     <>
-      <LampDemo>Our Services</LampDemo>
+      {/* <LampDemo>Our Services</LampDemo> */}
+      <SpotlightPreview />
       <TracingBeam>
         {content.map((obj) => (
           <div
