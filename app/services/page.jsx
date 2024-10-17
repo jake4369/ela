@@ -25,7 +25,7 @@ function SpotlightPreview() {
 
           <div class="scroll-downs">
             <div class="mousey">
-              <div class="scroller"></div>
+              <div class="mousey-scroller"></div>
             </div>
           </div>
         </div>
