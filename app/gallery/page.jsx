@@ -1,25 +1,30 @@
+import Link from "next/link";
 import { ParallaxScroll } from "@/components/ui/parallax-scroll";
-import LampDemo from "@/components/ui/lamp";
-
 import { Spotlight } from "@/components/ui/spotlight";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
-export function SpotlightPreview() {
+function SpotlightPreview() {
   return (
-    <div className="h-[40rem] w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div className=" h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
-      <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+      <div className="flex flex-col p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
         <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-          Spotlight <br /> is the new trend.
+          Gallery
         </h1>
-        <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
-          Spotlight effect is a great way to draw attention to a specific part
-          of the page. Here, we are drawing the attention towards the text
-          section of the page. I don&apos;t know why but I&apos;m running out of
-          copy.
+        <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-4">
+          From driveways to decks, and everything in between, we take pride in
+          restoring surfaces to their original, pristine condition. Browse
+          through our work to see the results we’ve delivered for satisfied
+          customers, and discover how we can bring new life to your property.
         </p>
+        <Link href="#images" className="mx-auto">
+          <HoverBorderGradient className="py-4">
+            View Images
+          </HoverBorderGradient>
+        </Link>
       </div>
     </div>
   );
@@ -56,12 +61,12 @@ const images = [
 
 const Page = () => {
   return (
-    <div className="mb-80">
-      <LampDemo>
-        <h1 className="mb-2">Gallery</h1>
-        <p className="text-sm">Scroll down to see our work</p>
-      </LampDemo>
-      <ParallaxScroll images={images} />
+    <div>
+      <SpotlightPreview />
+
+      <div id="images">
+        <ParallaxScroll images={images} />
+      </div>
     </div>
   );
 };
