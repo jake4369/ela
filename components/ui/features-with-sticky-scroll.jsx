@@ -35,14 +35,7 @@ const features = [
     description:
       "High-pressure washing for tough surfaces, soft washing for delicate areas, sealing to protect surfaces, and roof scraping with biocide treatments to ensure long-lasting cleanliness and protection.",
     content: (
-      //   <Image src="" alt="car" height="500" width="500" className="rounded-lg" />
-      <video
-        width="100%"
-        height="100%"
-        controls
-        // className="max-w-[500px] max-h-[375px]"
-        className="rounded-lg"
-      >
+      <video width="100%" height="100%" controls className="rounded-lg">
         <source src="/assets/images/services/pool.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -116,7 +109,7 @@ export function FeaturesWithStickyScroll() {
       className="w-full relative h-full pt-20 md:pt-40 max-w-7xl mx-auto"
     >
       <div className="px-6 flex flex-col items-center text-center">
-        <h2 className="mt-4 text-white text-lg md:text-2xl lg:text-4xl font-bold">
+        <h2 className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-left md:text-6xl">
           Our Services
         </h2>
         <p className="text-white text-sm md:text-base max-w-md mx-auto mt-4">

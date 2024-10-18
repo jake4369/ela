@@ -44,7 +44,7 @@ export function FeaturesSectionDemo() {
   return (
     <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto mb-32">
       <div className="px-8">
-        <h2 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+        <h2 className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-6xl">
           About Our Company
         </h2>
       </div>
