@@ -4,6 +4,7 @@ import Services from "@/components/services/Services";
 import OurWork from "@/components/work/OurWork";
 import Reviews from "@/components/reviews/Reviews";
 import FAQSection from "@/components/faqs/FAQSection";
+import CTA from "@/components/cta/CTA";
 
 const products = [
   {
@@ -47,6 +48,7 @@ const Home = () => {
       <OurWork />
       <Reviews />
       <FAQSection />
+      <CTA />
     </>
   );
 };
