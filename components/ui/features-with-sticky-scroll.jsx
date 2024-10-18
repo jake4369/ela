@@ -107,6 +107,7 @@ export function FeaturesWithStickyScroll() {
       }}
       ref={ref}
       className="w-full relative h-full pt-20 md:pt-40 max-w-7xl mx-auto"
+      id="servicesSection"
     >
       <div className="px-6 flex flex-col items-center text-center">
         <h2 className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-left md:text-6xl">

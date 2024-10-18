@@ -8,7 +8,10 @@ function AppleCardsCarouselDemo() {
   ));
 
   return (
-    <div className="flex flex-col w-full h-full py-20 lg:w-[77.0833333333%] mx-auto">
+    <div
+      className="flex flex-col w-full h-full py-20 lg:w-[77.0833333333%] mx-auto"
+      id="work"
+    >
       <h2 className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-6xl mb-6">
         Our Work
       </h2>

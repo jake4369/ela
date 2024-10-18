@@ -42,7 +42,10 @@ export function FeaturesSectionDemo() {
     },
   ];
   return (
-    <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto mb-32">
+    <div
+      className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto mb-32"
+      id="about"
+    >
       <div className="px-8">
         <h2 className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-6xl">
           About Our Company

@@ -63,7 +63,10 @@ const FAQs = [
 export function FrequentlyAskedQuestionsAccordion() {
   const [open, setOpen] = useState(null);
   return (
-    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 py-20 md:grid-cols-2 md:px-8 md:py-40">
+    <div
+      className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 py-20 md:grid-cols-2 md:px-8 md:py-40"
+      id="faqs"
+    >
       <h2 className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-left md:text-6xl">
         Frequently asked questions
       </h2>
