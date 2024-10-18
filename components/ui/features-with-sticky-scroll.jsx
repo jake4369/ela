@@ -16,7 +16,7 @@ const features = [
     icon: <IconRocket className="h-8 w-8 text-neutral-200" />,
     title: "Service Overview",
     description:
-      "We provide expert pressure washing services to restore and protect your outdoor surfaces, ensuring a clean, long-lasting, and visually appealing property.",
+      "Our expert pressure washing services are tailored to restore and protect your outdoor surfaces, enhancing both their appearance and durability. Using advanced cleaning techniques, we ensure a thorough, safe clean for everything from driveways to delicate brickwork, leaving your property looking pristine and well-maintained.",
     content: (
       <div>
         <Image
@@ -33,7 +33,7 @@ const features = [
     icon: <IconRocket className="h-8 w-8 text-neutral-200" />,
     title: "Core Services",
     description:
-      "High-pressure washing for tough surfaces, soft washing for delicate areas, sealing to protect surfaces, and roof scraping with biocide treatments to ensure long-lasting cleanliness and protection.",
+      "Offering high-pressure washing for tough surfaces, soft washing for delicate areas, steam cleaning for deep sanitation, and specialized care for heritage brickwork. Our services also include graffiti removal, chewing gum removal, surface sealing for protection, and roof scraping with biocide treatments to ensure long-lasting cleanliness and preservation.",
     content: (
       <video width="100%" height="100%" controls className="rounded-lg">
         <source src="/assets/images/services/pool.mp4" type="video/mp4" />
@@ -188,7 +188,7 @@ export const ScrollContent = ({ item, index }) => {
 
           <motion.p
             className={`text-lg text-neutral-500 font-regular max-w-sm mt-2 ${
-              item.title === "Our Complete Service Solutions" && "mb-4"
+              item.title === "Our Complete Service Solutions" && "mb-16"
             }`}
           >
             {item.description}
@@ -196,7 +196,9 @@ export const ScrollContent = ({ item, index }) => {
 
           {item.title === "Our Complete Service Solutions" && (
             <Link href="/services">
-              <HoverBorderGradient>View Services</HoverBorderGradient>
+              <HoverBorderGradient className="py-4 px-8">
+                View Services
+              </HoverBorderGradient>
             </Link>
           )}
         </motion.div>
@@ -239,14 +241,16 @@ export const ScrollContentMobile = ({ item, index }) => {
 
           <motion.p
             className={`text-sm md:text-base text-neutral-500 font-bold max-w-sm mt-2 ${
-              item.title === "Our Complete Service Solutions" && "mb-4"
+              item.title === "Our Complete Service Solutions" && "mb-10"
             }`}
           >
             {item.description}
           </motion.p>
           {item.title === "Our Complete Service Solutions" && (
             <Link href="/services">
-              <HoverBorderGradient>View Services</HoverBorderGradient>
+              <HoverBorderGradient className="py-4 px-8">
+                View Services
+              </HoverBorderGradient>
             </Link>
           )}
         </motion.div>
