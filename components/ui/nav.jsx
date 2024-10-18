@@ -33,7 +33,7 @@ const Navbar = () => {
       name: "Our Work",
       children: [
         {
-          name: "Our Work",
+          name: "Work Overview",
           link: "/#work",
         },
         {
@@ -97,7 +97,7 @@ const DesktopNav = ({ navItems }) => {
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Our Work">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/#work">Our Work</HoveredLink>
+              <HoveredLink href="/#work">Work Overview</HoveredLink>
               <HoveredLink href="/gallery">Gallery</HoveredLink>
             </div>
           </MenuItem>
