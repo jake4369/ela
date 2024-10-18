@@ -2,9 +2,9 @@
 import { cn } from "@/lib/utils";
 import { IconChevronDown, IconMenu2, IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { HoverBorderGradient } from "./hover-border-gradient";
 
 export function NavbarWithChildren() {
   return <Navbar />;
@@ -14,14 +14,14 @@ const Navbar = () => {
   const navItems = [
     {
       name: "About Us",
-      link: "#about",
+      link: "/#about",
     },
     {
       name: "Services",
       children: [
         {
           name: "Service Overview",
-          link: "#servicesSection",
+          link: "/#servicesSection",
         },
         {
           name: "All Services",
@@ -34,7 +34,7 @@ const Navbar = () => {
       children: [
         {
           name: "Our Work",
-          link: "#work",
+          link: "/#work",
         },
         {
           name: "Gallery",
@@ -44,11 +44,11 @@ const Navbar = () => {
     },
     {
       name: "Testimonials",
-      link: "#testimonials",
+      link: "/#testimonials",
     },
     {
       name: "FAQs",
-      link: "#faqs",
+      link: "/#faqs",
     },
   ];
 
@@ -85,7 +85,7 @@ const DesktopNav = ({ navItems }) => {
             setActive={setActive}
             active={active}
             item="About Us"
-            href="#about"
+            href="/#about"
           />
           <MenuItem setActive={setActive} active={active} item="Services">
             <div className="  text-sm grid grid-cols-2 gap-10 p-4">
@@ -97,7 +97,7 @@ const DesktopNav = ({ navItems }) => {
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Our Work">
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="#work">Our Work</HoveredLink>
+              <HoveredLink href="/#work">Our Work</HoveredLink>
               <HoveredLink href="/gallery">Gallery</HoveredLink>
             </div>
           </MenuItem>
@@ -105,25 +105,30 @@ const DesktopNav = ({ navItems }) => {
             setActive={setActive}
             active={active}
             item="Testimonials"
-            href="#testimonials"
+            href="/#testimonials"
           />
           <MenuItem
             setActive={setActive}
             active={active}
             item="FAQs"
-            href="#faqs"
+            href="/#faqs"
           />
         </Menu>
       </div>
-      <button className="hidden md:block px-8 py-2 text-sm font-bold rounded-full bg-slate-950 dark:bg-white dark:text-black  text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset]">
-        Contact Us
-      </button>
+
+      <Link href="/contact">
+        <HoverBorderGradient>Contact Us</HoverBorderGradient>
+      </Link>
     </motion.div>
   );
 };
 
 const MobileNav = ({ navItems }) => {
   const [open, setOpen] = useState(false);
+
+  const closeMenu = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -164,11 +169,15 @@ const MobileNav = ({ navItems }) => {
               {navItems.map((navItem, idx) => (
                 <div key={`navItem-${idx}`} className="w-full">
                   {navItem.children ? (
-                    <MobileChildNavItems navItem={navItem} />
+                    <MobileChildNavItems
+                      navItem={navItem}
+                      closeMenu={closeMenu}
+                    />
                   ) : (
                     <Link
                       href={navItem.link}
                       className="relative text-neutral-600 dark:text-neutral-300"
+                      onClick={() => closeMenu()}
                     >
                       <motion.span className="block">
                         {navItem.name}
@@ -177,9 +186,9 @@ const MobileNav = ({ navItems }) => {
                   )}
                 </div>
               ))}
-              <button className="px-8 py-2 w-full rounded-lg  bg-black dark:bg-white dark:text-slate-950 font-medium text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset]">
-                Contact Us
-              </button>
+              <Link href="/contact" className="w-full flex justify-center">
+                <HoverBorderGradient>Contact Us</HoverBorderGradient>
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>
@@ -188,8 +197,9 @@ const MobileNav = ({ navItems }) => {
   );
 };
 
-const MobileChildNavItems = ({ navItem }) => {
+const MobileChildNavItems = ({ navItem, closeMenu }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <motion.div className="overflow-hidden">
       <button
@@ -213,7 +223,9 @@ const MobileChildNavItems = ({ navItem }) => {
                 href={child.link}
                 className="relative text-neutral-600 dark:text-neutral-300"
               >
-                <motion.span className="block">{child.name}</motion.span>
+                <motion.span className="block" onClick={() => closeMenu()}>
+                  {child.name}
+                </motion.span>
               </Link>
             ))}
           </motion.div>
