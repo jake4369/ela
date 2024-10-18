@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
 import {
   IconBrandFacebook,
-  IconBrandGithub,
+  IconBrandTiktok,
   IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandTwitter,
+  IconBrandGoogle,
+  IconBrandYoutube,
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,12 +46,14 @@ export function CenteredWithLogo() {
     <div className="border-t border-neutral-100 dark:border-white/[0.1] px-8 py-20 bg-white dark:bg-slate-950 w-full relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-sm text-neutral-500  justify-between items-start  md:px-8">
         <div className="flex flex-col items-center justify-center w-full relative">
-          <div className="mr-0 md:mr-4  md:flex mb-4">
-            {/* <Logo /> */}
-            ELA Pressure Washing
+          <div className="mr-0 md:mr-4 text-center mb-4">
+            <span className="text-5xl">ELA</span>
+            <span>
+              <br /> Professional <br /> Pressure Washing
+            </span>
           </div>
 
-          <ul className="transition-colors flex sm:flex-row flex-col hover:text-text-neutral-800 text-neutral-600 dark:text-neutral-300 list-none gap-4">
+          <ul className="transition-colors flex sm:flex-row flex-col hover:text-text-neutral-800 text-neutral-600 dark:text-neutral-300 list-none gap-4 text-center">
             {pages.map((page, idx) => (
               <li key={"pages" + idx} className="list-none">
                 <Link
@@ -68,22 +70,34 @@ export function CenteredWithLogo() {
         </div>
         <div className="flex sm:flex-row flex-col justify-between mt-8 items-center w-full">
           <p className="text-neutral-500 dark:text-neutral-400 mb-8 sm:mb-0">
-            &copy; DevStudios LLABC
+            &copy; DevXDesigns
           </p>
           <div className="flex gap-4">
-            <Link href="#">
-              <IconBrandTwitter className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
+            <Link
+              href="https://www.youtube.com/@elapressurewashing5332"
+              target="_blank"
+            >
+              <IconBrandYoutube className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
             </Link>
-            <Link href="#">
-              <IconBrandLinkedin className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
+            <Link href="https://g.co/kgs/ffnY4jb" target="_blank">
+              <IconBrandGoogle className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
             </Link>
-            <Link href="#">
-              <IconBrandGithub className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
+            <Link
+              href="https://www.tiktok.com/@ela_pressure_washing"
+              target="_blank"
+            >
+              <IconBrandTiktok className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
             </Link>
-            <Link href="#">
+            <Link
+              href="https://www.facebook.com/profile.php?id=100083060296284"
+              target="_blank"
+            >
               <IconBrandFacebook className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
             </Link>
-            <Link href="#">
+            <Link
+              href="https://www.instagram.com/ela.pressurewashing/"
+              target="_blank"
+            >
               <IconBrandInstagram className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
             </Link>
           </div>
@@ -120,17 +134,5 @@ const GridLineHorizontal = ({ className, offset }) => {
         className
       )}
     ></div>
-  );
-};
-
-const Logo = () => {
-  return (
-    <Link
-      href="/"
-      className="font-normal flex space-x-2 items-center text-sm mr-4  text-black px-2 py-1  relative z-20"
-    >
-      <Image src="" alt="logo" width={30} height={30} />
-      <span className="font-medium text-black dark:text-white">DevStudio</span>
-    </Link>
   );
 };
