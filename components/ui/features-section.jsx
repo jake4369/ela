@@ -153,7 +153,7 @@ export const SkeletonTwo = () => {
     "/assets/images/about/commercial.jpg",
     "/assets/images/about/roof.jpg",
     "/assets/images/about/crane.jpeg",
-    "/assets/images/about/drive2.jpeg",
+    "/assets/images/about/drive2.jpg",
   ];
 
   const imageVariants = {
