@@ -6,6 +6,7 @@ import Image from "next/image";
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { Compare } from "./compare";
 
 export function FeaturesSectionDemo() {
   const features = [
@@ -133,12 +134,10 @@ export const SkeletonThree = () => {
   return (
     <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
       <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
-        <Image
-          src="/assets/images/about/reviews.svg"
-          alt="header"
-          width={800}
-          height={800}
-          className=" w-full aspect-square object-cover object-center rounded-sm blur-none"
+        <Compare
+          firstImage="/assets/images/about/before.jpg"
+          secondImage="/assets/images/about/after.jpg"
+          className="w-full"
         />
       </div>
     </div>
