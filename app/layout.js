@@ -1,5 +1,7 @@
 import "./globals.css";
-import { SimpleNavbarWithHoverEffects } from "@/components/ui/nav";
+// import { SimpleNavbarWithHoverEffects } from "@/components/ui/nav";
+import { NavbarWithChildren } from "@/components/ui/nav";
+import { CenteredWithLogo } from "@/components/ui/footer";
 
 export const metadata = {
   title: "ELA Pressure Washing",
@@ -11,8 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="dark">
-        <SimpleNavbarWithHoverEffects />
+        {/* <SimpleNavbarWithHoverEffects /> */}
+        <NavbarWithChildren></NavbarWithChildren>
         <main className="app">{children}</main>
+        <CenteredWithLogo />
       </body>
     </html>
   );
