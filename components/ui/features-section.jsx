@@ -43,7 +43,7 @@ export function FeaturesSectionDemo() {
   ];
   return (
     <div
-      className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto mb-32"
+      className="relative z-20 pt-10 lg:pt-40 max-w-7xl mx-auto mb-32"
       id="about"
     >
       <div className="px-8">
