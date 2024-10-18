@@ -35,23 +35,23 @@ function AppleCardsCarouselDemo() {
 
 const data = [
   {
-    src: "/assets/images/about/crane.jpeg",
-  },
-  {
-    src: "/assets/images/about/crane.jpeg",
-  },
-  {
-    src: "/assets/images/about/crane.jpeg",
+    src: "/assets/images/carousel/drive.jpg",
   },
 
   {
-    src: "/assets/images/about/crane.jpeg",
+    src: "/assets/images/carousel/tarmac.jpg",
+  },
+  {
+    src: "/assets/images/carousel/roof.jpg",
   },
   {
     src: "/assets/images/about/crane.jpeg",
   },
   {
-    src: "/assets/images/about/crane.jpeg",
+    src: "/assets/images/carousel/barbers.jpg",
+  },
+  {
+    src: "/assets/images/carousel/gum.jpg",
   },
 ];
 
