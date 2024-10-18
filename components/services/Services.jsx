@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
 // import { FaBroom, FaSeedling } from "react-icons/fa";
 import { FaBroom, FaDroplet, FaSeedling } from "react-icons/fa6";
+import { FeaturesWithStickyScroll } from "../ui/features-with-sticky-scroll";
 
 const services = [
   {
@@ -39,40 +40,41 @@ const ServiceCard = ({ icon, heading, description }) => {
 
 const Services = () => {
   return (
-    <section className="flex flex-col w-[87.2%] md:w-[77.0833333333%] text-center mx-auto mb-20">
-      <h2 className="text-3xl md:text-5xl mb-14  text-center">Our Services</h2>
+    // <section className="flex flex-col w-[87.2%] md:w-[77.0833333333%] text-center mx-auto mb-20">
+    //   <h2 className="text-3xl md:text-5xl mb-14  text-center">Our Services</h2>
 
-      <p className="text-center mb-8 md:mb-20 md:w-[77.0833333333%] lg:w-[70%] mx-auto">
-        We offer expert pressure washing, steam cleaning and surface care to
-        refresh and protect your property. From deep cleaning tough stains to
-        gentle soft washing for delicate surfaces, we handle it all. Our
-        services include roof scraping, chemical treatments, biocide
-        applications, and professional sealing to maintain durability and
-        appearance. We also offer driveway leveling and patio re-pointing for a
-        flawless finish.
-      </p>
+    //   <p className="text-center mb-8 md:mb-20 md:w-[77.0833333333%] lg:w-[70%] mx-auto">
+    //     We offer expert pressure washing, steam cleaning and surface care to
+    //     refresh and protect your property. From deep cleaning tough stains to
+    //     gentle soft washing for delicate surfaces, we handle it all. Our
+    //     services include roof scraping, chemical treatments, biocide
+    //     applications, and professional sealing to maintain durability and
+    //     appearance. We also offer driveway leveling and patio re-pointing for a
+    //     flawless finish.
+    //   </p>
 
-      <div className="lg:flex items-center justify-between">
-        {services.map((obj) => (
-          <ServiceCard
-            key={obj.heading}
-            icon={obj.icon}
-            heading={obj.heading}
-            description={obj.description}
-          />
-        ))}
-      </div>
+    //   <div className="lg:flex items-center justify-between">
+    //     {services.map((obj) => (
+    //       <ServiceCard
+    //         key={obj.heading}
+    //         icon={obj.icon}
+    //         heading={obj.heading}
+    //         description={obj.description}
+    //       />
+    //     ))}
+    //   </div>
 
-      <p className="mb-8">
-        Click <strong>"Learn More"</strong> to see how we can enhance your
-        outdoor spaces!
-      </p>
-      <Link href="/services" className="mx-auto">
-        <HoverBorderGradient className="py-4 px-8">
-          Learn More
-        </HoverBorderGradient>
-      </Link>
-    </section>
+    //   <p className="mb-8">
+    //     Click <strong>"Learn More"</strong> to see how we can enhance your
+    //     outdoor spaces!
+    //   </p>
+    //   <Link href="/services" className="mx-auto">
+    //     <HoverBorderGradient className="py-4 px-8">
+    //       Learn More
+    //     </HoverBorderGradient>
+    //   </Link>
+    // </section>
+    <FeaturesWithStickyScroll />
   );
 };
 
