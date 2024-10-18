@@ -14,13 +14,16 @@ function SpotlightPreview() {
           Our Services
         </h1>
         <div className="relative">
-          <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-10">
+          <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-8">
             We provide professional cleaning and maintenance services to keep
             your property in top shape. From pressure washing to soft washing,
             roof cleaning, and sealing, our expert team handles all your outdoor
             care needs. With a focus on quality and eco-friendly solutions, we
             ensure your home or business looks great and stays protected.
-            Explore our services below!
+          </p>
+
+          <p className="font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-14">
+            <strong>Scoll down and explore our services below!</strong>
           </p>
 
           <div class="scroll-downs">
@@ -84,6 +87,21 @@ const content = [
     title: "Re-pointing Patios",
     description:
       "Re-pointing your patio involves renewing the mortar between bricks or stones, which can crack and deteriorate over time due to weather exposure and natural wear. Our re-pointing service restores the structure and appearance of your patio, providing a fresh, clean finish while ensuring the stability of the surface. By replacing old, crumbling mortar with new material, we help prevent water penetration and extend the lifespan of your patio.",
+  },
+  {
+    title: "Graffiti Removal",
+    description:
+      "Our graffiti removal service utilizes specialized techniques and eco-friendly products to effectively remove unwanted graffiti from walls, fences, and other surfaces. We restore the original look of your property while ensuring that the removal process is safe and effective.",
+  },
+  {
+    title: "Chewing Gum Removal",
+    description:
+      "We provide thorough chewing gum removal services for both commercial and residential properties. Using advanced cleaning methods, we safely and efficiently eliminate chewing gum from surfaces without causing damage, ensuring a clean and welcoming environment.",
+  },
+  {
+    title: "Heritage Brickwork Care",
+    description:
+      "Our heritage brickwork care service focuses on preserving the beauty and integrity of historic brick surfaces. We employ gentle cleaning methods and treatments, using specialized equipment to remove stains and organic growth while ensuring that the heritage value of the brickwork is maintained.",
   },
   {
     title: "Get A Quote",

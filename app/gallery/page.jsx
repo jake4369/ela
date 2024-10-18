@@ -14,25 +14,24 @@ function SpotlightPreview() {
         <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
           Gallery
         </h1>
-        <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-10">
-          From driveways to decks, and everything in between, we take pride in
-          restoring surfaces to their original, pristine condition. Browse
-          through our work to see the results we’ve delivered for satisfied
-          customers, and discover how we can bring new life to your property.
-        </p>
+        <div className="relative">
+          <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-14">
+            Explore our work and see how our expert services, including
+            high-pressure washing, soft washing, and chemical treatments, have
+            restored the original charm and integrity of various surfaces. Let
+            these visuals inspire you to enhance the beauty of your own
+            property!
+          </p>
 
-        <div className="flex mx-auto gap-4">
-          <Link href="#images" className="">
-            <HoverBorderGradient className="py-4">
-              View Images
-            </HoverBorderGradient>
-          </Link>
+          <p className="font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-14">
+            <strong>Scoll down and enjoy our work!</strong>
+          </p>
 
-          <Link href="#videos" className="mx-auto">
-            <HoverBorderGradient className="py-4">
-              View Videos
-            </HoverBorderGradient>
-          </Link>
+          <div class="scroll-downs">
+            <div class="mousey">
+              <div class="mousey-scroller"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -76,8 +75,6 @@ const Page = () => {
       <div id="images" className="mb-40 w-[87.2%] mx-auto">
         <FocusCards cards={images} />
       </div>
-
-      <div id="videos">Videos</div>
     </div>
   );
 };
