@@ -14,15 +14,15 @@ export function CenteredWithLogo() {
   const pages = [
     {
       title: "Home",
-      href: "#",
+      href: "/",
     },
     {
       title: "About",
-      href: "#",
+      href: "#about",
     },
     {
       title: "Services",
-      href: "#",
+      href: "#servicesSection",
     },
     {
       title: "Our Work",
@@ -38,7 +38,7 @@ export function CenteredWithLogo() {
     },
     {
       title: "Contact",
-      href: "#contact",
+      href: "/contact",
     },
   ];
 
@@ -47,7 +47,8 @@ export function CenteredWithLogo() {
       <div className="max-w-7xl mx-auto text-sm text-neutral-500  justify-between items-start  md:px-8">
         <div className="flex flex-col items-center justify-center w-full relative">
           <div className="mr-0 md:mr-4  md:flex mb-4">
-            <Logo />
+            {/* <Logo /> */}
+            ELA Pressure Washing
           </div>
 
           <ul className="transition-colors flex sm:flex-row flex-col hover:text-text-neutral-800 text-neutral-600 dark:text-neutral-300 list-none gap-4">
@@ -55,7 +56,7 @@ export function CenteredWithLogo() {
               <li key={"pages" + idx} className="list-none">
                 <Link
                   className="transition-colors hover:text-text-neutral-800 "
-                  href="/products"
+                  href={page.href}
                 >
                   {page.title}
                 </Link>
