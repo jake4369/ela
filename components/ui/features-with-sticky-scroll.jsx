@@ -77,7 +77,7 @@ export function FeaturesWithStickyScroll() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const backgrounds = ["#1f2937", "#262626", "#1e293b"];
+  const backgrounds = ["#030816", "#1e293b", "#030816"];
 
   const [gradient, setGradient] = useState(backgrounds[0]);
 
