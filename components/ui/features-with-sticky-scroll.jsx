@@ -77,7 +77,7 @@ export function FeaturesWithStickyScroll() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const backgrounds = ["#030816", "#1e293b", "#030816"];
+  const backgrounds = ["#030816", "#030816", "#030816"];
 
   const [gradient, setGradient] = useState(backgrounds[0]);
 
@@ -106,7 +106,7 @@ export function FeaturesWithStickyScroll() {
         duration: 0.5,
       }}
       ref={ref}
-      className="w-full relative h-full pt-4 md:pt-10 max-w-7xl mx-auto"
+      className="w-full relative h-full max-w-7xl mx-auto"
       id="servicesSection"
     >
       <div className="px-6 flex flex-col items-center text-center">
