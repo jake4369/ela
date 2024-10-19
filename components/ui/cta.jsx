@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 
 export function SimpleCTAWithImages() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-20 flex flex-col md:flex-row justify-between items-center w-full md:px-8">
+    <div className="max-w-7xl mx-auto px-4 pb-10 flex flex-col md:flex-row justify-between items-center w-full md:px-8">
       <div className="flex flex-col">
         <motion.h2 className="text-black dark:text-white text-xl text-center md:text-left md:text-3xl font-bold mx-auto md:mx-0 max-w-xl ">
           Get a free, <br />

@@ -76,7 +76,7 @@ const Reviews = () => {
       <InfiniteMovingCards
         items={testimonials}
         speed="slow"
-        className="mb-10"
+        // className="mb-10"
       />
     </section>
   );
