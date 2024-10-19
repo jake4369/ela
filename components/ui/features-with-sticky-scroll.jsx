@@ -6,14 +6,14 @@ import {
   useTransform,
   useMotionValueEvent,
 } from "framer-motion";
-import { IconRocket } from "@tabler/icons-react";
+import { IconInfoSquareRounded } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { HoverBorderGradient } from "./hover-border-gradient";
 
 const features = [
   {
-    icon: <IconRocket className="h-8 w-8 text-neutral-200" />,
+    icon: <IconInfoSquareRounded className="h-8 w-8 text-neutral-200" />,
     title: "Service Overview",
     description:
       "Our expert pressure washing services are tailored to restore and protect your outdoor surfaces, enhancing both their appearance and durability. Using advanced cleaning techniques, we ensure a thorough, safe clean for everything from driveways to delicate brickwork, leaving your property looking pristine and well-maintained.",
@@ -30,7 +30,7 @@ const features = [
     ),
   },
   {
-    icon: <IconRocket className="h-8 w-8 text-neutral-200" />,
+    icon: <IconInfoSquareRounded className="h-8 w-8 text-neutral-200" />,
     title: "Core Services",
     description:
       "Offering high-pressure washing for tough surfaces, soft washing for delicate areas, steam cleaning for deep sanitation, and specialized care for heritage brickwork. Our services also include graffiti removal, chewing gum removal, surface sealing for protection, and roof scraping with biocide treatments to ensure long-lasting cleanliness and preservation.",
@@ -42,7 +42,7 @@ const features = [
     ),
   },
   {
-    icon: <IconRocket className="h-8 w-8 text-neutral-200" />,
+    icon: <IconInfoSquareRounded className="h-8 w-8 text-neutral-200" />,
     title: "Our Complete Service Solutions",
     description:
       "Explore the complete range of our professional services by clicking the button below.",
