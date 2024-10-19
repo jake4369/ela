@@ -15,7 +15,6 @@ import {
 } from "framer-motion";
 
 import { BsStarFill } from "react-icons/bs";
-import { HiArrowRight } from "react-icons/hi2";
 import { cn } from "@/lib/utils";
 
 export function SimpleCTAWithImages() {
@@ -38,10 +37,6 @@ export function SimpleCTAWithImages() {
           showStars
         />
       </div>
-      {/* <button className="flex space-x-2 items-center group text-base px-4 py-2 rounded-lg bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]">
-        <span>Book a call</span>
-        <HiArrowRight className="text-white group-hover:translate-x-1 stroke-[1px] h-3 w-3 mt-0.5 transition-transform duration-200" />
-      </button> */}
       <Link href="/contact">
         <HoverBorderGradient>Contact Us</HoverBorderGradient>
       </Link>
@@ -96,7 +91,7 @@ export const FeaturedImages = ({
           {testimonials.map((testimonial, idx) => (
             <div
               className="-mr-4  relative group"
-              key={testimonial.name}
+              key={testimonial.id}
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -160,7 +155,7 @@ export const FeaturedImages = ({
                       height={100}
                       width={100}
                       src={testimonial.image}
-                      alt={testimonial.name}
+                      alt={testimonial.designation}
                       className="object-cover object-top  h-14 w-14 "
                     />
                   </Link>
@@ -193,36 +188,42 @@ export const FeaturedImages = ({
 
 const testimonials = [
   {
+    id: 0,
     name: "ELA",
     designation: "on Tiktok",
     image: "/assets/images/cta/tiktok.jpeg",
     href: "https://www.tiktok.com/@ela_pressure_washing",
   },
   {
+    id: 1,
     name: "ELA",
     designation: "on Youtube",
     image: "/assets/images/cta/youtube.png",
     href: "https://www.youtube.com/@elapressurewashing5332",
   },
   {
+    id: 2,
     name: "ELA",
     designation: "on Facebook",
     image: "/assets/images/cta/facebook.png",
     href: "https://www.facebook.com/profile.php?id=100083060296284",
   },
   {
+    id: 3,
     name: "ELA",
     designation: "on Instagram",
     image: "/assets/images/cta/instagram.png",
     href: "https://www.instagram.com/ela.pressurewashing/",
   },
   {
+    id: 4,
     name: "ELA",
     designation: "on Google",
     image: "/assets/images/cta/google.svg",
     href: "https://g.co/kgs/HVmAuCY",
   },
   {
+    id: 5,
     name: "ELA",
     designation: "on Yell",
     image: "/assets/images/cta/yell.png",

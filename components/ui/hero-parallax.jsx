@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { HoverBorderGradient } from "./hover-border-gradient";
 
 export const HeroParallax = ({ products }) => {
@@ -60,7 +61,7 @@ export const HeroParallax = ({ products }) => {
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={product.id}
             />
           ))}
         </motion.div>
@@ -69,7 +70,7 @@ export const HeroParallax = ({ products }) => {
             <ProductCard
               product={product}
               translate={translateXReverse}
-              key={product.title}
+              key={product.id}
             />
           ))}
         </motion.div>
@@ -100,13 +101,11 @@ export const Header = () => {
         keep your property looking its best.
       </p>
 
-      <HoverBorderGradient className="py-4 px-8 text-xl">
-        Contact Us
-      </HoverBorderGradient>
-
-      {/* <div className="flex">
-        <AnimatedTooltip items={items} />
-      </div> */}
+      <Link href="/contact">
+        <HoverBorderGradient className="py-4 px-8 text-xl">
+          Contact Us
+        </HoverBorderGradient>
+      </Link>
     </div>
   );
 };
@@ -126,6 +125,7 @@ export const ProductCard = ({ product, translate }) => {
         width={600}
         className="object-cover object-left-top absolute h-full w-full inset-0"
         alt={product.title}
+        priority={true}
       />
     </motion.div>
   );
