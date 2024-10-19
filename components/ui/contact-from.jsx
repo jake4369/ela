@@ -81,7 +81,7 @@ export function SimpleCenteredContactForm() {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-slate-950 w-full flex items-center justify-center py-20">
+    <div className="bg-gray-50 dark:bg-slate-950 w-full flex items-center justify-center pt-20">
       <div className="flex relative px-4 z-20 items-center w-full justify-center py-10">
         <div className="mx-auto w-full max-w-lg bg-white dark:bg-neutral-950 px-4 md:px-10 py-8 shadow-input rounded-3xl">
           <div>
