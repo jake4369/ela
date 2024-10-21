@@ -452,20 +452,20 @@ export const ScrollContent = ({ item, index }) => {
           className=""
         >
           <div aria-hidden="true">{item.icon}</div>
-          <motion.h2
+          <motion.h3
             id={`feature-${index}-title`}
             className="max-w-md mt-2 font-bold text-2xl lg:text-4xl inline-block bg-clip-text text-left text-transparent bg-gradient-to-b from-white to-white"
           >
             {item.title}
-          </motion.h2>
+          </motion.h3>
 
-          <motion.p
+          <motion.h3
             className={`text-lg text-neutral-500 font-regular max-w-sm mt-2 ${
               item.title === "Our Complete Service Solutions" && "mb-16"
             }`}
           >
             {item.description}
-          </motion.p>
+          </motion.h3>
 
           {item.title === "Our Complete Service Solutions" && (
             <Link href="/services" aria-label="View all services">
@@ -510,20 +510,20 @@ export const ScrollContentMobile = ({ item, index }) => {
       <div className="w-full">
         <motion.div className="mb-6">
           <div aria-hidden="true">{item.icon}</div>
-          <motion.h2
+          <motion.h3
             id={`feature-${index}-title`} // Unique ID for accessibility
             className="mt-2 font-bold text-2xl lg:text-4xl inline-block bg-clip-text text-left text-transparent bg-gradient-to-b from-white to-white"
           >
             {item.title}
-          </motion.h2>
+          </motion.h3>
 
-          <motion.p
+          <motion.h3
             className={`text-sm md:text-base text-neutral-500 font-bold max-w-sm mt-2 ${
               item.title === "Our Complete Service Solutions" && "mb-10"
             }`}
           >
             {item.description}
-          </motion.p>
+          </motion.h3>
           {item.title === "Our Complete Service Solutions" && (
             <Link href="/services" aria-label="View all services">
               <HoverBorderGradient className="py-4 px-8">
