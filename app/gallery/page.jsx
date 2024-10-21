@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/spotlight";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { FocusCards } from "@/components/ui/focus-cards";
+import { CTAWithDashedGridLines } from "@/components/ui/cta-dashed";
 
 function SpotlightPreview() {
   return (
@@ -75,6 +75,8 @@ const Page = () => {
       <div id="images" className="mb-40 w-[87.2%] mx-auto">
         <FocusCards cards={images} />
       </div>
+
+      <CTAWithDashedGridLines />
     </div>
   );
 };

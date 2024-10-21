@@ -2,41 +2,7 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Spotlight } from "@/components/ui/spotlight";
 import Image from "next/image";
-
-function SpotlightPreview() {
-  return (
-    <div className=" h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden">
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="white"
-      />
-      <div className="flex flex-col p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
-        <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-          Our Services
-        </h1>
-        <div className="relative">
-          <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-8">
-            We provide professional cleaning and maintenance services to keep
-            your property in top shape. From pressure washing to soft washing,
-            roof cleaning, and sealing, our expert team handles all your outdoor
-            care needs. With a focus on quality and eco-friendly solutions, we
-            ensure your home or business looks great and stays protected.
-          </p>
-
-          <p className="font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-14">
-            <strong>Scoll down and explore our services below!</strong>
-          </p>
-
-          <div class="scroll-downs">
-            <div class="mousey">
-              <div class="mousey-scroller"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { CTAWithDashedGridLines } from "@/components/ui/cta-dashed";
 
 const content = [
   {
@@ -110,54 +76,48 @@ const content = [
     description:
       "Our heritage brickwork care service focuses on preserving the beauty and integrity of historic brick surfaces. We employ gentle cleaning methods and treatments, using specialized equipment to remove stains and organic growth while ensuring that the heritage value of the brickwork is maintained.",
   },
-  {
-    title: "Get A Quote",
-    description:
-      "Get in touch with us today to receive a free, no-obligation quote and discover how our expert pressure washing services can help restore and maintain the beauty of your property, all with no commitment required.",
-    hasBtn: true,
-  },
+  // {
+  //   title: "Get A Quote",
+  //   description:
+  //     "Get in touch with us today to receive a free, no-obligation quote and discover how our expert pressure washing services can help restore and maintain the beauty of your property, all with no commitment required.",
+  //   hasBtn: true,
+  // },
 ];
 
-// const Page = () => {
-//   return (
-//     <>
-//       {/* <LampDemo>Our Services</LampDemo> */}
-//       <SpotlightPreview />
-//       <TracingBeam>
-//         {content.map((obj) => (
-//           <>
-//             {obj.image && (
-//               <Image
-//                 className="w-full px-8 lg:px-0 rounded-lg mb-4 mx-auto"
-//                 src={obj.image}
-//                 width={400}
-//                 height={400}
-//               />
-//             )}
-//             <div
-//               key={obj.title}
-//               className="mb-24 w-[87.2%] mx-auto px-2 md:w-full"
-//             >
-//               <h3 className="text-2xl md:text-4xl mb-4">{obj.title}</h3>
+function SpotlightPreview() {
+  return (
+    <div className=" h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden">
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+      <div className="flex flex-col p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+        <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+          Our Services
+        </h1>
+        <div className="relative">
+          <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-8">
+            We provide professional cleaning and maintenance services to keep
+            your property in top shape. From pressure washing to soft washing,
+            roof cleaning, and sealing, our expert team handles all your outdoor
+            care needs. With a focus on quality and eco-friendly solutions, we
+            ensure your home or business looks great and stays protected.
+          </p>
 
-//               <p className={`text-l ${obj.hasBtn && "mb-12"}`}>
-//                 {obj.description}
-//               </p>
+          <p className="font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-14">
+            <strong>Scoll down and explore our services below!</strong>
+          </p>
 
-//               {obj.hasBtn && (
-//                 <HoverBorderGradient className="py-4 px-8 text-xl">
-//                   Get A Quote
-//                 </HoverBorderGradient>
-//               )}
-//             </div>
-//           </>
-//         ))}
-//       </TracingBeam>
-//     </>
-//   );
-// };
-
-// export default Page;
+          <div class="scroll-downs">
+            <div class="mousey">
+              <div class="mousey-scroller"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const Page = () => {
   return (
@@ -195,6 +155,8 @@ const Page = () => {
           ))}
         </div>
       </TracingBeam>
+
+      <CTAWithDashedGridLines />
     </>
   );
 };
