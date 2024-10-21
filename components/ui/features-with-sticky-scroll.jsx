@@ -35,10 +35,13 @@ const features = [
     description:
       "Offering high-pressure washing for tough surfaces, soft washing for delicate areas, steam cleaning for deep sanitation, and specialized care for heritage brickwork. Our services also include graffiti removal, chewing gum removal, surface sealing for protection, and roof scraping with biocide treatments to ensure long-lasting cleanliness and preservation.",
     content: (
-      <video width="100%" height="100%" controls className="rounded-lg">
-        <source src="/assets/images/services/pool.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <figure>
+        <video width="100%" height="100%" controls className="rounded-lg">
+          <source src="/assets/images/services/ela.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Click to play video</figcaption>
+      </figure>
     ),
   },
   {
