@@ -21,6 +21,19 @@ body,
   width: 100%;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); /* IE 6, 7 */
+  clip-path: inset(50%); /* Modern browsers */
+  white-space: nowrap; /* Prevent line breaks */
+  border: 0; /* Remove borders */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

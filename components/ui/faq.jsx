@@ -60,6 +60,7 @@ const FAQs = [
   //       "Driveway sinkage lifting is a service that restores uneven or sunken areas of your driveway. If parts of your driveway have become lower than the rest due to soil settling or poor installation, it can lead to drainage issues and trip hazards. Our lifting process levels the surface, making it safe and visually appealing again.",
   //   },
 ];
+
 export function FrequentlyAskedQuestionsAccordion() {
   const [open, setOpen] = useState(null);
   return (
@@ -68,7 +69,7 @@ export function FrequentlyAskedQuestionsAccordion() {
       id="faqs"
     >
       <h2 className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-left md:text-6xl">
-        Frequently asked questions
+        Frequently Asked Questions
       </h2>
       <div className="divide-y divide-neutral-200 dark:divide-neutral-800">
         {FAQs.map((faq, index) => (
@@ -91,13 +92,18 @@ const FAQItem = ({ question, answer, setOpen, open }) => {
   return (
     <div
       className="cursor-pointer py-4"
-      onClick={() => {
-        if (isOpen) {
-          setOpen(null);
-        } else {
-          setOpen(question);
+      onClick={() => setOpen(isOpen ? null : question)}
+      onKeyDown={(e) => {
+        // Allow keyboard navigation
+        if (e.key === "Enter" || e.key === " ") {
+          setOpen(isOpen ? null : question);
+          e.preventDefault(); // Prevent default behavior of space
         }
       }}
+      role="button"
+      tabIndex={0} // Make the div focusable
+      aria-expanded={isOpen} // Indicates whether the answer is visible
+      aria-controls={`faq-answer-${question.replace(/\s+/g, "-")}`} // Generate a unique ID for the answer
     >
       <div className="flex items-start">
         <div className="relative mr-4 mt-1 h-6 w-6 flex-shrink-0">
@@ -106,18 +112,20 @@ const FAQItem = ({ question, answer, setOpen, open }) => {
               "absolute inset-0 h-6 w-6 transform text-blue-500 transition-all duration-200",
               isOpen && "rotate-90 scale-0"
             )}
+            aria-hidden="true" // Hide from screen readers
           />
           <IconMinus
             className={cn(
               "absolute inset-0 h-6 w-6 rotate-90 scale-0 transform text-blue-500 transition-all duration-200",
               isOpen && "rotate-0 scale-100"
             )}
+            aria-hidden="true" // Hide from screen readers
           />
         </div>
         <div>
-          <h3 className="text-lg font-medium text-neutral-700 dark:text-neutral-200">
+          <h4 className="text-lg font-medium text-neutral-700 dark:text-neutral-200">
             {question}
-          </h3>
+          </h4>
           <AnimatePresence mode="wait">
             {isOpen && (
               <motion.div
@@ -126,6 +134,8 @@ const FAQItem = ({ question, answer, setOpen, open }) => {
                 exit={{ height: 0 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="overflow-hidden text-neutral-500 dark:text-neutral-400"
+                id={`faq-answer-${question.replace(/\s+/g, "-")}`} // Unique ID for the answer
+                aria-labelledby={`faq-header-${question.replace(/\s+/g, "-")}`} // Reference to the question
               >
                 <p>{answer}</p>
               </motion.div>

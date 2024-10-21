@@ -76,23 +76,23 @@ const content = [
     description:
       "Our heritage brickwork care service focuses on preserving the beauty and integrity of historic brick surfaces. We employ gentle cleaning methods and treatments, using specialized equipment to remove stains and organic growth while ensuring that the heritage value of the brickwork is maintained.",
   },
-  // {
-  //   title: "Get A Quote",
-  //   description:
-  //     "Get in touch with us today to receive a free, no-obligation quote and discover how our expert pressure washing services can help restore and maintain the beauty of your property, all with no commitment required.",
-  //   hasBtn: true,
-  // },
 ];
 
 function SpotlightPreview() {
   return (
-    <div className=" h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div
+      className="h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden"
+      role="banner" // Indicates this is a header region for assistive technologies
+    >
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
-      <div className="flex flex-col p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
-        <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+      <div className="flex flex-col p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0">
+        <h1
+          className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50"
+          aria-label="Our Services" // Provides context for screen readers
+        >
           Our Services
         </h1>
         <div className="relative">
@@ -105,12 +105,12 @@ function SpotlightPreview() {
           </p>
 
           <p className="font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-14">
-            <strong>Scoll down and explore our services below!</strong>
+            <strong>Scroll down and explore our services below!</strong>
           </p>
 
-          <div class="scroll-downs">
-            <div class="mousey">
-              <div class="mousey-scroller"></div>
+          <div className="scroll-downs" role="img" aria-label="Scroll down">
+            <div className="mousey">
+              <div className="mousey-scroller"></div>
             </div>
           </div>
         </div>
@@ -122,33 +122,34 @@ function SpotlightPreview() {
 const Page = () => {
   return (
     <>
-      {/* <LampDemo>Our Services</LampDemo> */}
       <SpotlightPreview />
       <TracingBeam className="px-6">
         <div className="max-w-2xl mx-auto antialiased pt-4 relative">
           {content.map((item, index) => (
             <div key={`content-${index}`} className="mb-10">
-              {/* <p className="text-xl mb-4">{item.title}</p> */}
-
-              <div className="text-sm  prose prose-sm dark:prose-invert">
+              <div className="text-sm prose prose-sm dark:prose-invert">
                 {item?.image && (
                   <Image
                     src={item.image}
-                    alt="blog thumbnail"
+                    alt={`Thumbnail for ${item.title}`} // Descriptive alt text for accessibility
                     height="1000"
                     width="1000"
                     className="rounded-lg mb-10 object-cover"
                   />
                 )}
-                <p className="mb-4 text-2xl md:text-4xl">{item.title}</p>
+                <h2 className="mb-4 text-2xl md:text-4xl">{item.title}</h2>{" "}
+                {/* Changed to h2 for better SEO structure */}
                 <p className={`text-base ${item.hasBtn && "mb-8"}`}>
                   {item.description}
                 </p>
-
                 {item.hasBtn && (
-                  <HoverBorderGradient className="py-4 px-8 text-xl">
-                    Get A Quote
-                  </HoverBorderGradient>
+                  <Link href="/quote">
+                    {" "}
+                    {/* Added Link for accessibility */}
+                    <HoverBorderGradient className="py-4 px-8 text-xl">
+                      Get A Quote
+                    </HoverBorderGradient>
+                  </Link>
                 )}
               </div>
             </div>
