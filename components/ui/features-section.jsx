@@ -145,6 +145,7 @@ export const SkeletonThree = () => {
           firstImage="/assets/images/about/before.jpg"
           secondImage="/assets/images/about/after.jpg"
           className="w-full"
+          aria-hidden="true"
         />
       </div>
     </div>
@@ -285,11 +286,7 @@ export const Globe = ({ className }) => {
   }, []);
 
   return (
-    <figure
-      className={className}
-      role="img"
-      aria-labelledby="globe-description"
-    >
+    <figure className={className} role="img" aria-hidden="true">
       <canvas
         ref={canvasRef}
         style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
