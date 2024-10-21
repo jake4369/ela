@@ -13,6 +13,10 @@ export function NavbarWithChildren() {
 const Navbar = () => {
   const navItems = [
     {
+      name: "Home",
+      link: "/",
+    },
+    {
       name: "About Us",
       link: "/#about",
     },
@@ -186,7 +190,11 @@ const MobileNav = ({ navItems }) => {
                   )}
                 </div>
               ))}
-              <Link href="/contact" className="w-full flex justify-center">
+              <Link
+                href="/contact"
+                className="w-full flex justify-center"
+                onClick={() => closeMenu()}
+              >
                 <HoverBorderGradient>Contact Us</HoverBorderGradient>
               </Link>
             </motion.div>
