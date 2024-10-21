@@ -8,7 +8,7 @@ export function HoverBorderGradient({
   children,
   containerClassName,
   className,
-  as: Tag = "button",
+  as: Tag = "button", // Default to "button" for interactive elements
   duration = 1,
   clockwise = true,
   ...props
@@ -45,17 +45,20 @@ export function HoverBorderGradient({
       return () => clearInterval(interval);
     }
   }, [hovered]);
+
   return (
     <Tag
-      onMouseEnter={(event) => {
-        setHovered(true);
-      }}
+      onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)} // Keyboard focus handling
+      onBlur={() => setHovered(false)} // Handle focus loss
       className={cn(
-        "relative flex rounded-full border  content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
+        "relative flex rounded-full border content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
         containerClassName
       )}
-      {...props}
+      aria-label={props["aria-label"] || "Hover to see gradient effect"} // Fallback aria-label
+      tabIndex={0} // Make it keyboard focusable
+      {...props} // Spread props to support any extra attributes like role or aria-labelledby
     >
       <div
         className={cn(
@@ -66,9 +69,7 @@ export function HoverBorderGradient({
         {children}
       </div>
       <motion.div
-        className={cn(
-          "flex-none inset-0 overflow-hidden absolute z-0 rounded-[inherit]"
-        )}
+        className="flex-none inset-0 overflow-hidden absolute z-0 rounded-[inherit]"
         style={{
           filter: "blur(2px)",
           position: "absolute",

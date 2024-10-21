@@ -8,7 +8,6 @@ import { HoverBorderGradient } from "./hover-border-gradient";
 export const HeroParallax = ({ products }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -41,10 +40,12 @@ export const HeroParallax = ({ products }) => {
     useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
     springConfig
   );
+
   return (
-    <div
+    <section
       ref={ref}
-      className="h-[1800px] md:h-[2000px] pt-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      aria-labelledby="hero-heading"
+      className="h-[1800px] md:h-[2000px] pt-40 overflow-hidden relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -54,7 +55,7 @@ export const HeroParallax = ({ products }) => {
           translateY,
           opacity,
         }}
-        className=""
+        className="relative"
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
@@ -74,24 +75,21 @@ export const HeroParallax = ({ products }) => {
             />
           ))}
         </motion.div>
-        {/* <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div> */}
       </motion.div>
-    </div>
+    </section>
   );
 };
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto pt-20 px-4 w-full  left-0 top-0">
-      <h1 className="text-5xl md:text-7xl font-bold dark:text-white ">
+    <header
+      className="max-w-7xl mx-auto pt-20 px-4 w-full"
+      aria-label="Introduction"
+    >
+      <h1
+        id="hero-heading"
+        className="text-5xl md:text-7xl font-bold dark:text-white"
+      >
         ELA Pressure Washing
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 mb-12">
@@ -100,23 +98,23 @@ export const Header = () => {
         equipment and eco-friendly methods, we deliver outstanding results to
         keep your property looking its best.
       </p>
-
       <Link href="/contact">
         <HoverBorderGradient className="py-4 px-8 text-xl">
           Contact Us
         </HoverBorderGradient>
       </Link>
-    </div>
+    </header>
   );
 };
 
 export const ProductCard = ({ product, translate }) => {
   return (
-    <motion.div
+    <motion.article
+      aria-labelledby={`product-${product.id}`}
       style={{
         x: translate,
       }}
-      key={product.title}
+      key={product.id}
       className="group/product h-64 w-[20rem] md:h-96 md:w-[30rem] relative flex-shrink-0"
     >
       <Image
@@ -124,9 +122,12 @@ export const ProductCard = ({ product, translate }) => {
         height={600}
         width={600}
         className="object-cover object-left-top absolute h-full w-full inset-0"
-        alt={product.title}
+        alt={`Image of ${product.title}`}
         priority={true}
       />
-    </motion.div>
+      <h2 id={`product-${product.id}`} className="sr-only">
+        {product.title}
+      </h2>
+    </motion.article>
   );
 };
