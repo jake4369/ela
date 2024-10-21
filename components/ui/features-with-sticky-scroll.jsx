@@ -1,5 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   motion,
   useScroll,
@@ -7,9 +9,8 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { IconInfoSquareRounded } from "@tabler/icons-react";
-import Image from "next/image";
-import Link from "next/link";
 import { HoverBorderGradient } from "./hover-border-gradient";
+import { Compare } from "./compare";
 
 const features = [
   {
@@ -54,12 +55,29 @@ const features = [
   },
   {
     icon: <IconInfoSquareRounded className="h-8 w-8 text-neutral-200" />,
+    title: "Specialized Equipment and Expertise",
+    description:
+      "Our fleet is equipped with multiple van-mounted systems, allowing us to operate high- or low-pressure steam without the need for an external water supply or electricity. We use only the highest-quality chemicals available, ensuring optimal results on the first pass. Our specialized heritage-certified machines enable us to safely clean listed and historic buildings. With over 10 years of experience in exterior cleaning and project management, we own all our equipment and maintain up-to-date risk assessments, method statements, and COSHH documents, ensuring compliance and safety at every job.",
+    content: (
+      <div>
+        <Image
+          src="/assets/images/services/heritage.svg"
+          alt="A well-maintained house exterior after pressure washing"
+          height="500"
+          width="500"
+          className="rounded-lg w-full"
+        />
+      </div>
+    ),
+  },
+  {
+    icon: <IconInfoSquareRounded className="h-8 w-8 text-neutral-200" />,
     title: "Our Complete Service Solutions",
     description:
       "Explore the complete range of our professional services by clicking the button below.",
     content: (
       <div className="relative">
-        <div className="-rotate-[10deg]">
+        <div className="-rotate-[10deg] mb-6">
           <Image
             src="/assets/images/services/house.jpg"
             alt="A house showcasing the effects of our cleaning services"
