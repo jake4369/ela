@@ -40,7 +40,9 @@ const features = [
           <source src="/assets/images/services/ela.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <figcaption>Click to play video</figcaption>
+        <figcaption className="text-center md:text-left">
+          Click to play video
+        </figcaption>
       </figure>
     ),
   },
