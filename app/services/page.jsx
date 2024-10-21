@@ -1,6 +1,7 @@
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Spotlight } from "@/components/ui/spotlight";
+import Image from "next/image";
 
 function SpotlightPreview() {
   return (
@@ -39,6 +40,7 @@ function SpotlightPreview() {
 
 const content = [
   {
+    image: "/assets/images/about/header.jpg",
     title: "Cleaning",
     description:
       "Our expert cleaning services are designed to restore and rejuvenate the appearance of outdoor surfaces by removing accumulated dirt, algae, grime, and organic matter. Whether it’s walkways, driveways, patios, or walls, we use the latest cleaning techniques and equipment to ensure a thorough clean, bringing back the original beauty of your property and enhancing its overall appeal.",
@@ -47,6 +49,11 @@ const content = [
     title: "High Pressure Wash",
     description:
       "High-pressure washing uses powerful water jets to remove years of embedded dirt, grime, and stains from hard surfaces such as concrete, brick, and stone. This method is perfect for removing tough contaminants like oil stains, graffiti, and stubborn buildup, leaving surfaces looking fresh and revitalized. It’s a deep-clean solution ideal for heavily soiled areas that require a strong, effective cleaning approach.",
+  },
+  {
+    title: "Steam Cleaning",
+    description:
+      "Our steam cleaning service provides a chemical-free, eco-friendly way to deep clean a variety of surfaces. Using high-temperature steam, we effectively remove dirt, grease, bacteria, and allergens without harsh chemicals. Ideal for tiles, grout, upholstery, and some outdoor areas, steam cleaning penetrates deep to lift tough contaminants. This method not only sanitizes but also restores surfaces, making it a safe and effective choice for homes and businesses looking for a thorough clean.",
   },
   {
     title: "Soft Wash",
@@ -111,30 +118,82 @@ const content = [
   },
 ];
 
+// const Page = () => {
+//   return (
+//     <>
+//       {/* <LampDemo>Our Services</LampDemo> */}
+//       <SpotlightPreview />
+//       <TracingBeam>
+//         {content.map((obj) => (
+//           <>
+//             {obj.image && (
+//               <Image
+//                 className="w-full px-8 lg:px-0 rounded-lg mb-4 mx-auto"
+//                 src={obj.image}
+//                 width={400}
+//                 height={400}
+//               />
+//             )}
+//             <div
+//               key={obj.title}
+//               className="mb-24 w-[87.2%] mx-auto px-2 md:w-full"
+//             >
+//               <h3 className="text-2xl md:text-4xl mb-4">{obj.title}</h3>
+
+//               <p className={`text-l ${obj.hasBtn && "mb-12"}`}>
+//                 {obj.description}
+//               </p>
+
+//               {obj.hasBtn && (
+//                 <HoverBorderGradient className="py-4 px-8 text-xl">
+//                   Get A Quote
+//                 </HoverBorderGradient>
+//               )}
+//             </div>
+//           </>
+//         ))}
+//       </TracingBeam>
+//     </>
+//   );
+// };
+
+// export default Page;
+
 const Page = () => {
   return (
     <>
       {/* <LampDemo>Our Services</LampDemo> */}
       <SpotlightPreview />
-      <TracingBeam>
-        {content.map((obj) => (
-          <div
-            key={obj.title}
-            className="mb-24 w-[87.2%] mx-auto px-2 md:w-full"
-          >
-            <h3 className="text-2xl md:text-4xl mb-4">{obj.title}</h3>
+      <TracingBeam className="px-6">
+        <div className="max-w-2xl mx-auto antialiased pt-4 relative">
+          {content.map((item, index) => (
+            <div key={`content-${index}`} className="mb-10">
+              {/* <p className="text-xl mb-4">{item.title}</p> */}
 
-            <p className={`text-l ${obj.hasBtn && "mb-12"}`}>
-              {obj.description}
-            </p>
+              <div className="text-sm  prose prose-sm dark:prose-invert">
+                {item?.image && (
+                  <Image
+                    src={item.image}
+                    alt="blog thumbnail"
+                    height="1000"
+                    width="1000"
+                    className="rounded-lg mb-10 object-cover"
+                  />
+                )}
+                <p className="mb-4 text-2xl md:text-4xl">{item.title}</p>
+                <p className={`text-base ${item.hasBtn && "mb-8"}`}>
+                  {item.description}
+                </p>
 
-            {obj.hasBtn && (
-              <HoverBorderGradient className="py-4 px-8 text-xl">
-                Get A Quote
-              </HoverBorderGradient>
-            )}
-          </div>
-        ))}
+                {item.hasBtn && (
+                  <HoverBorderGradient className="py-4 px-8 text-xl">
+                    Get A Quote
+                  </HoverBorderGradient>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </TracingBeam>
     </>
   );
