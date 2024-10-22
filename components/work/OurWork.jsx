@@ -59,7 +59,7 @@ const data = [
   },
   {
     src: "/assets/images/about/crane.jpeg",
-    alt: "Pressure washing a crane",
+    alt: "Pressure washing walls from a crane",
   },
   {
     src: "/assets/images/carousel/barbers.jpg",
@@ -68,6 +68,10 @@ const data = [
   {
     src: "/assets/images/carousel/gum.jpg",
     alt: "Removal of gum from pavement",
+  },
+  {
+    src: "/assets/images/carousel/moss.jpg",
+    alt: "Cleaning moss from a walkway",
   },
 ];
 
