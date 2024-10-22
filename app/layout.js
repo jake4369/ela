@@ -5,7 +5,7 @@ import { CenteredWithLogo } from "@/components/ui/footer";
 export const metadata = {
   title: "ELA Pressure Washing",
   description:
-    "Professional pressure washing and steam cleaning for residential and commercial premises.",
+    "ELA Pressure Washing provides top-quality pressure washing, steam cleaning, and surface restoration services for residential, commercial, and heritage properties. Our expert team specializes in high-pressure washing, soft washing, chemical treatments, roof cleaning, and more, ensuring your property looks its best and stays protected. Whether you need graffiti removal, driveway leveling, or patio re-pointing, we deliver outstanding results with eco-friendly solutions and professional care.",
   keywords:
     "pressure washing, steam cleaning, heritage site cleaning, high pressure wash, soft wash, chemical treatments, sealing, roof cleaning, biocide treatments, driveway lifting, patio re-pointing, graffiti removal, chewing gum removal, residential, commercial,",
   author: "ELA Pressure Washing",
