@@ -142,8 +142,8 @@ export const SkeletonThree = () => {
       </h3>
       <div className="flex flex-1 w-full h-full flex-col space-y-2 relative">
         <Compare
-          firstImage="/assets/images/about/before.jpg"
-          secondImage="/assets/images/about/after.jpg"
+          firstImage="/assets/images/about/before.svg"
+          secondImage="/assets/images/about/after.svg"
           className="w-full"
           aria-hidden="true"
         />
