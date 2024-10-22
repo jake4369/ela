@@ -1,4 +1,4 @@
-import { SimpleCenteredContactForm } from "@/components/ui/contact-from";
+import { SimpleCenteredContactForm } from "@/components/ui/contact-form";
 
 const Page = () => {
   return <SimpleCenteredContactForm />;
