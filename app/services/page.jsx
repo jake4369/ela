@@ -1,7 +1,7 @@
-import { TracingBeam } from "@/components/ui/tracing-beam";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { Spotlight } from "@/components/ui/spotlight";
 import Image from "next/image";
+import Link from "next/link";
+import { TracingBeam } from "@/components/ui/tracing-beam";
+import { Spotlight } from "@/components/ui/spotlight";
 import { CTAWithDashedGridLines } from "@/components/ui/cta-dashed";
 
 const content = [
@@ -75,6 +75,7 @@ const content = [
     title: "Heritage Brickwork Care",
     description:
       "Our heritage brickwork care service focuses on preserving the beauty and integrity of historic brick surfaces. We employ gentle cleaning methods and treatments, using specialized equipment to remove stains and organic growth while ensuring that the heritage value of the brickwork is maintained.",
+    href: "https://historicengland.org.uk/advice/technical-advice/buildings/",
   },
 ];
 
@@ -139,17 +140,18 @@ const Page = () => {
                 )}
                 <h2 className="mb-4 text-2xl md:text-4xl">{item.title}</h2>{" "}
                 {/* Changed to h2 for better SEO structure */}
-                <p className={`text-base ${item.hasBtn && "mb-8"}`}>
+                <p className={`text-base ${item.href && "mb-4"}`}>
                   {item.description}
                 </p>
-                {item.hasBtn && (
-                  <Link href="/quote">
-                    {" "}
-                    {/* Added Link for accessibility */}
-                    <HoverBorderGradient className="py-4 px-8 text-xl">
-                      Get A Quote
-                    </HoverBorderGradient>
-                  </Link>
+                {item.href ? (
+                  <p>
+                    Learn more about cleaning heritage sites{" "}
+                    <Link href={item.href} className="underline">
+                      <strong>here</strong>
+                    </Link>
+                  </p>
+                ) : (
+                  ""
                 )}
               </div>
             </div>
