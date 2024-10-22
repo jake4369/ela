@@ -1,5 +1,4 @@
 import "./globals.css";
-// import { SimpleNavbarWithHoverEffects } from "@/components/ui/nav";
 import { NavbarWithChildren } from "@/components/ui/nav";
 import { CenteredWithLogo } from "@/components/ui/footer";
 
@@ -13,7 +12,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="dark">
-        {/* <SimpleNavbarWithHoverEffects /> */}
         <NavbarWithChildren></NavbarWithChildren>
         <main className="app">{children}</main>
         <CenteredWithLogo />
