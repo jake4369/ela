@@ -13,6 +13,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const businessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "ELA Pressure Washing",
+    description:
+      "ELA Pressure Washing offers professional pressure washing, steam cleaning, and surface restoration for residential, commercial, and heritage properties. Eco-friendly solutions.",
+    url: "https://www.elapressurewashing.co.uk",
+    telephone: "+447852435168",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "60 D'Eyncourt Road",
+      addressLocality: "Wolverhampton",
+      addressRegion: "West Midlands",
+      postalCode: "WV10 0SX",
+      addressCountry: "UK",
+    },
+    openingHours: "Mo-Fr 7:00-17:00",
+  };
+
   return (
     <html lang="en">
       <head>
@@ -32,6 +51,11 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="/assets/opengraph.png" />
 
         <link rel="icon" href="/assets/favicon.ico" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        />
       </head>
       <body className="dark">
         <NavbarWithChildren></NavbarWithChildren>
