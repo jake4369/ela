@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     "@type": "LocalBusiness",
     name: "ELA Pressure Washing",
     description:
-      "ELA Pressure Washing offers professional pressure washing, steam cleaning, and surface restoration for residential, commercial, and heritage properties. Eco-friendly solutions.",
+      "ELA Pressure Washing provides professional pressure washing, steam cleaning, and surface restoration for residential, commercial, and heritage properties.",
     url: "https://www.elapressurewashing.co.uk",
     telephone: "+447852435168",
     address: {
