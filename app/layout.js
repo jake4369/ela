@@ -10,6 +10,7 @@ export const metadata = {
     "pressure washing, steam cleaning, heritage site cleaning, high pressure wash, soft wash, chemical treatments, sealing, roof cleaning, biocide treatments, driveway lifting, patio re-pointing, graffiti removal, chewing gum removal, residential, commercial,",
   author: "ELA Pressure Washing",
   robots: "index, follow",
+  canonicalUrl: "https://www.elapressurewashing.co.uk",
 };
 
 export default function RootLayout({ children }) {
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="/assets/opengraph.png" />
 
         <link rel="icon" href="/assets/favicon.ico" />
+        <link rel="canonical" href={metadata.canonicalUrl} />
 
         <script
           type="application/ld+json"
