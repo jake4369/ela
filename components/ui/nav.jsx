@@ -96,7 +96,7 @@ const DesktopNav = ({ navItems }) => {
               <HoveredLink href="/#servicesSection">
                 Service Overview
               </HoveredLink>
-              <HoveredLink href="/services">Full List of Services</HoveredLink>
+              <HoveredLink href="/services">All Services</HoveredLink>
             </div>
           </MenuItem>
           <MenuItem setActive={setActive} active={active} item="Our Work">
@@ -231,7 +231,7 @@ const MobileChildNavItems = ({ navItem, closeMenu }) => {
                 href={child.link}
                 className="relative text-neutral-600 dark:text-neutral-300"
               >
-                <motion.span className="block" onClick={() => closeMenu()}>
+                <motion.span className="block mt-4" onClick={() => closeMenu()}>
                   {child.name}
                 </motion.span>
               </Link>
