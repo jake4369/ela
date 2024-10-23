@@ -120,7 +120,7 @@ const DesktopNav = ({ navItems }) => {
         </Menu>
       </div>
 
-      <Link href="/contact">
+      <Link href="/contact" aria-label="Click button to go to contact page">
         <HoverBorderGradient>Contact Us</HoverBorderGradient>
       </Link>
     </motion.div>
@@ -194,6 +194,7 @@ const MobileNav = ({ navItems }) => {
                 href="/contact"
                 className="w-full flex justify-center"
                 onClick={() => closeMenu()}
+                aria-label="Click button to go to contact page"
               >
                 <HoverBorderGradient>Contact Us</HoverBorderGradient>
               </Link>

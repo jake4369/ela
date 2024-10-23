@@ -36,7 +36,7 @@ export function CTAWithDashedGridLines() {
             <HoverBorderGradient
               className="py-4 px-8"
               role="button"
-              aria-label="Contact us for more information"
+              aria-label="Click button to go to contact page"
             >
               {" "}
               {/* Added aria-label for clarity */}

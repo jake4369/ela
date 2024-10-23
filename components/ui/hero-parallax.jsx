@@ -225,7 +225,7 @@ export const Header = () => {
         equipment and eco-friendly methods, we deliver outstanding results to
         keep your property looking its best.
       </p>
-      <Link href="/contact">
+      <Link href="/contact" aria-label="Click button to go to contact page">
         <HoverBorderGradient className="py-4 px-8 text-xl">
           Contact Us
         </HoverBorderGradient>

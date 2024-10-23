@@ -290,7 +290,7 @@ export const ScrollContentMobile = ({ item, index }) => {
             {item.description}
           </motion.h3>
           {item.title === "Our Complete Service Solutions" && (
-            <Link href="/services" aria-label="View all services">
+            <Link href="/services" aria-label="Click button to view all services">
               <HoverBorderGradient className="py-4 px-8">
                 View Services
               </HoverBorderGradient>

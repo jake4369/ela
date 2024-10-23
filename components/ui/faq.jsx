@@ -59,10 +59,11 @@ const FAQs = [
   //     answer:
   //       "Driveway sinkage lifting is a service that restores uneven or sunken areas of your driveway. If parts of your driveway have become lower than the rest due to soil settling or poor installation, it can lead to drainage issues and trip hazards. Our lifting process levels the surface, making it safe and visually appealing again.",
   //   },
-];
+]; //
 
 export function FrequentlyAskedQuestionsAccordion() {
   const [open, setOpen] = useState(null);
+
   return (
     <div
       className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 pt-20 md:grid-cols-2 md:px-8 md:py-40"
@@ -88,22 +89,23 @@ export function FrequentlyAskedQuestionsAccordion() {
 
 const FAQItem = ({ question, answer, setOpen, open }) => {
   const isOpen = open === question;
+  const questionId = `faq-header-${question.replace(/\s+/g, "-")}`;
+  const answerId = `faq-answer-${question.replace(/\s+/g, "-")}`;
 
   return (
     <div
       className="cursor-pointer py-4"
       onClick={() => setOpen(isOpen ? null : question)}
       onKeyDown={(e) => {
-        // Allow keyboard navigation
         if (e.key === "Enter" || e.key === " ") {
           setOpen(isOpen ? null : question);
-          e.preventDefault(); // Prevent default behavior of space
+          e.preventDefault();
         }
       }}
       role="button"
-      tabIndex={0} // Make the div focusable
-      aria-expanded={isOpen} // Indicates whether the answer is visible
-      aria-controls={`faq-answer-${question.replace(/\s+/g, "-")}`} // Generate a unique ID for the answer
+      tabIndex={0}
+      aria-expanded={isOpen}
+      aria-controls={answerId}
     >
       <div className="flex items-start">
         <div className="relative mr-4 mt-1 h-6 w-6 flex-shrink-0">
@@ -112,18 +114,21 @@ const FAQItem = ({ question, answer, setOpen, open }) => {
               "absolute inset-0 h-6 w-6 transform text-blue-500 transition-all duration-200",
               isOpen && "rotate-90 scale-0"
             )}
-            aria-hidden="true" // Hide from screen readers
+            aria-hidden="true"
           />
           <IconMinus
             className={cn(
               "absolute inset-0 h-6 w-6 rotate-90 scale-0 transform text-blue-500 transition-all duration-200",
               isOpen && "rotate-0 scale-100"
             )}
-            aria-hidden="true" // Hide from screen readers
+            aria-hidden="true"
           />
         </div>
         <div>
-          <h4 className="text-lg font-medium text-neutral-700 dark:text-neutral-200">
+          <h4
+            className="text-lg font-medium text-neutral-700 dark:text-neutral-200"
+            id={questionId}
+          >
             {question}
           </h4>
           <AnimatePresence mode="wait">
@@ -134,8 +139,9 @@ const FAQItem = ({ question, answer, setOpen, open }) => {
                 exit={{ height: 0 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="overflow-hidden text-neutral-500 dark:text-neutral-400"
-                id={`faq-answer-${question.replace(/\s+/g, "-")}`} // Unique ID for the answer
-                aria-labelledby={`faq-header-${question.replace(/\s+/g, "-")}`} // Reference to the question
+                id={answerId}
+                aria-labelledby={questionId}
+                aria-hidden={!isOpen} // Hidden when collapsed
               >
                 <p>{answer}</p>
               </motion.div>

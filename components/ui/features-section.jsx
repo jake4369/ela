@@ -178,11 +178,8 @@ export const SkeletonTwo = () => {
     <div
       className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden"
       role="region"
-      aria-labelledby="gallery-title"
+      aria-hidden="true" // Hides this section from screen readers
     >
-      <h3 id="gallery-title" className="sr-only">
-        Image Gallery
-      </h3>
       <div className="flex flex-row -ml-20">
         {images.map((image, idx) => (
           <motion.div
@@ -201,7 +198,7 @@ export const SkeletonTwo = () => {
               width={500}
               height={500}
               className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-              loading="lazy" // Added lazy loading
+              loading="lazy"
             />
           </motion.div>
         ))}
@@ -224,7 +221,7 @@ export const SkeletonTwo = () => {
               width={500}
               height={500}
               className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-              loading="lazy" // Added lazy loading
+              loading="lazy"
             />
           </motion.div>
         ))}

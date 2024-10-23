@@ -248,7 +248,7 @@ export const Card = ({ card, index, layout = false }) => {
         </div>
         <BlurImage
           src={card.src}
-          alt={card.title} // Make sure the alt text is meaningful
+          alt={card.alt} // Make sure the alt text is meaningful
           fill
           className="object-cover absolute z-10 inset-0"
           // width={1000}
@@ -258,29 +258,6 @@ export const Card = ({ card, index, layout = false }) => {
     </>
   );
 };
-
-// export const BlurImage = ({ height, width, src, className, alt, ...rest }) => {
-//   const [isLoading, setLoading] = useState(true);
-//   return (
-//     <Image
-//       className={cn(
-//         "transition duration-300",
-//         isLoading ? "blur-sm" : "blur-0",
-//         className
-//       )}
-//       onLoad={() => setLoading(false)}
-//       src={src}
-//       // width={800}
-//       // height={800}
-//       sizes
-//       loading="lazy"
-//       decoding="async"
-//       blurDataURL={typeof src === "string" ? src : undefined}
-//       alt={alt ? alt : "Background of a beautiful view"}
-//       {...rest}
-//     />
-//   );
-// };
 
 export const BlurImage = ({
   height,

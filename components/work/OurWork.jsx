@@ -34,7 +34,7 @@ function AppleCardsCarousel() {
       <Link
         href="/gallery"
         className="mx-auto"
-        aria-label="View our gallery of pressure washing projects"
+        aria-label="Click button to view our gallery of pressure washing projects"
       >
         <HoverBorderGradient className="py-4 px-8">
           View Gallery

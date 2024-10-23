@@ -82,7 +82,7 @@ export function SimpleCTAWithImages() {
           showStars
         />
       </div>
-      <Link href="/contact" aria-label="Contact us for a free quote">
+      <Link href="/contact" aria-label="Click button to go to contact page">
         <HoverBorderGradient>Contact Us</HoverBorderGradient>
       </Link>
     </div>
