@@ -12,7 +12,7 @@ import { useState } from "react";
 const socials = [
   {
     title: "facebook",
-    href: "https://www.facebook.com/profile.php?id=100083060296284",
+    href: "https://www.facebook.com/profile.php?id=61555129179931",
     icon: (
       <IconBrandFacebook className="h-5 w-5 text-neutral-600 dark:text-neutral-400 hover:text-black" />
     ),

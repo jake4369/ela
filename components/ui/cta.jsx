@@ -37,7 +37,7 @@ const testimonials = [
     name: "ELA",
     designation: "on Facebook",
     image: "/assets/images/cta/facebook.png",
-    href: "https://www.facebook.com/profile.php?id=100083060296284",
+    href: "https://www.facebook.com/profile.php?id=61555129179931",
   },
   {
     id: 3,

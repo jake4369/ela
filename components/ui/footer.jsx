@@ -212,7 +212,7 @@ export function CenteredWithLogo() {
               <IconBrandTiktok className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
             </Link>
             <Link
-              href="https://www.facebook.com/profile.php?id=100083060296284"
+              href="https://www.facebook.com/profile.php?id=61555129179931"
               target="_blank"
               aria-label="Visit our Facebook page"
             >
