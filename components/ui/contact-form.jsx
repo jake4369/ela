@@ -42,8 +42,47 @@ const socials = [
 
 export function SimpleCenteredContactForm() {
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const target = e.target;
+  //   const name = target.name.value.trim();
+  //   const email = target.email.value.trim();
+  //   const message = target.message.value.trim();
+
+  //   let newErrors = {};
+
+  //   // Basic validation rules
+  //   if (!name) {
+  //     newErrors.name = "Full name is required.";
+  //   } else if (name.length < 3) {
+  //     newErrors.name = "Full name must be at least 3 characters long.";
+  //   }
+
+  //   if (!email) {
+  //     newErrors.email = "Email address is required.";
+  //   } else if (!/\S+@\S+\.\S+/.test(email)) {
+  //     newErrors.email = "Email address is invalid.";
+  //   }
+
+  //   if (!message) {
+  //     newErrors.message = "Message is required.";
+  //   } else if (message.length < 10) {
+  //     newErrors.message = "Message must be at least 10 characters long.";
+  //   }
+
+  //   if (Object.keys(newErrors).length === 0) {
+  //     // If there are no errors, submit the form
+  //     console.log("Form submitted", { name, email, message });
+  //     // Clear form or handle the submission
+  //   } else {
+  //     setErrors(newErrors);
+  //   }
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const target = e.target;
     const name = target.name.value.trim();
@@ -72,9 +111,31 @@ export function SimpleCenteredContactForm() {
     }
 
     if (Object.keys(newErrors).length === 0) {
-      // If there are no errors, submit the form
-      console.log("Form submitted", { name, email, message });
-      // Clear form or handle the submission
+      // No validation errors, submit the form
+      try {
+        const res = await fetch("/api/email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          console.log("Form submitted successfully:", data);
+          setSuccessMessage("Your message has been sent successfully.");
+          setErrorMessage("");
+        } else {
+          const errorData = await res.json();
+          setErrorMessage(errorData.error || "Failed to send message.");
+          setSuccessMessage("");
+        }
+      } catch (error) {
+        console.error("Error submitting the form:", error);
+        setErrorMessage("An unexpected error occurred. Please try again.");
+        setSuccessMessage("");
+      }
     } else {
       setErrors(newErrors);
     }
