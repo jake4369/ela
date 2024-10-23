@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "email": "email dev --dir components/emails"
   },
   "dependencies": {
+    "@react-email/components": "^0.0.25",
     "@tabler/icons-react": "^3.19.0",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/react": "^3.0.0",
@@ -21,8 +23,8 @@
     "lucide-react": "^0.452.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.15",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-icons": "^5.3.0",
     "resend": "^4.0.0",
     "simplex-noise": "^4.0.3",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
+    "react-email": "3.0.1",
     "tailwindcss": "^3.4.13"
   }
 }

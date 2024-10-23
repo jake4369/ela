@@ -42,108 +42,103 @@ const socials = [
 
 export function SimpleCenteredContactForm() {
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "", // Added phone field
+    message: "",
+    contactMethod: { email: false, phone: false },
+  });
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const target = e.target;
-  //   const name = target.name.value.trim();
-  //   const email = target.email.value.trim();
-  //   const message = target.message.value.trim();
+  const validateForm = () => {
+    const newErrors = {};
 
-  //   let newErrors = {};
-
-  //   // Basic validation rules
-  //   if (!name) {
-  //     newErrors.name = "Full name is required.";
-  //   } else if (name.length < 3) {
-  //     newErrors.name = "Full name must be at least 3 characters long.";
-  //   }
-
-  //   if (!email) {
-  //     newErrors.email = "Email address is required.";
-  //   } else if (!/\S+@\S+\.\S+/.test(email)) {
-  //     newErrors.email = "Email address is invalid.";
-  //   }
-
-  //   if (!message) {
-  //     newErrors.message = "Message is required.";
-  //   } else if (message.length < 10) {
-  //     newErrors.message = "Message must be at least 10 characters long.";
-  //   }
-
-  //   if (Object.keys(newErrors).length === 0) {
-  //     // If there are no errors, submit the form
-  //     console.log("Form submitted", { name, email, message });
-  //     // Clear form or handle the submission
-  //   } else {
-  //     setErrors(newErrors);
-  //   }
-  // };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const target = e.target;
-    const name = target.name.value.trim();
-    const email = target.email.value.trim();
-    const message = target.message.value.trim();
-
-    let newErrors = {};
-
-    // Basic validation rules
-    if (!name) {
-      newErrors.name = "Full name is required.";
-    } else if (name.length < 3) {
-      newErrors.name = "Full name must be at least 3 characters long.";
+    if (formData.name.length < 3) {
+      newErrors.name = "Name must be at least 3 characters long.";
     }
-
-    if (!email) {
-      newErrors.email = "Email address is required.";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Email address is invalid.";
     }
-
-    if (!message) {
-      newErrors.message = "Message is required.";
-    } else if (message.length < 10) {
+    if (!/^\+?\d{10,15}$/.test(formData.phone)) {
+      // Add phone validation (10-15 digits)
+      newErrors.phone = "Phone number is invalid.";
+    }
+    if (formData.message.length < 10) {
       newErrors.message = "Message must be at least 10 characters long.";
     }
 
-    if (Object.keys(newErrors).length === 0) {
-      // No validation errors, submit the form
-      try {
-        const res = await fetch("/api/email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email, message }),
-        });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
 
-        if (res.ok) {
-          const data = await res.json();
-          console.log("Form submitted successfully:", data);
-          setSuccessMessage("Your message has been sent successfully.");
-          setErrorMessage("");
-        } else {
-          const errorData = await res.json();
-          setErrorMessage(errorData.error || "Failed to send message.");
-          setSuccessMessage("");
-        }
-      } catch (error) {
-        console.error("Error submitting the form:", error);
-        setErrorMessage("An unexpected error occurred. Please try again.");
-        setSuccessMessage("");
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      let key;
+      if (name === "contactMethodEmail") {
+        key = "email";
+      } else if (name === "contactMethodPhone") {
+        key = "phone";
       }
+
+      setFormData((prevData) => ({
+        ...prevData,
+        contactMethod: {
+          ...prevData.contactMethod,
+          [key]: checked,
+        },
+      }));
     } else {
-      setErrors(newErrors);
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+      // Clear error for the field being edited
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return; // Don't submit if validation fails
+    }
+
+    try {
+      // Make sure contactMethod is defined
+      const response = await fetch("/api/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData), // Send the form data as JSON
+      });
+
+      if (!response.ok) {
+        // Handle the error response as needed
+        const errorData = await response.json();
+        throw new Error(errorData.message || "An error occurred");
+      }
+
+      // Reset the form or show success message here
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        contactMethod: { email: false, phone: false }, // Reset the contact method state as well
+      });
+      alert("Your message has been sent successfully!"); // Example success message
+    } catch (error) {
+      console.error(error);
+      // Handle submission error (e.g., display an error message)
     }
   };
 
   return (
     <div className="bg-gray-50 dark:bg-slate-950 w-full flex items-center justify-center pt-20">
-      {/* Main content container */}
       <div
         className="flex relative px-4 z-20 items-center w-full justify-center py-10"
         role="main"
@@ -159,8 +154,6 @@ export function SimpleCenteredContactForm() {
               back to you promptly with a free quote and answers to your
               questions.
             </p>
-
-            {/* Phone number with screen-reader accessible text */}
             <a
               href="tel:+447852435168"
               className="flex align-center justify-center mt-4 text-neutral-600 dark:text-white text-sm max-w-sm"
@@ -171,7 +164,6 @@ export function SimpleCenteredContactForm() {
             </a>
           </div>
 
-          {/* Form starts */}
           <div className="py-10">
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               <div>
@@ -187,6 +179,8 @@ export function SimpleCenteredContactForm() {
                     type="text"
                     name="name"
                     placeholder="John Doe"
+                    value={formData.name}
+                    onChange={handleChange}
                     required
                     minLength={3}
                     aria-required="true"
@@ -201,7 +195,6 @@ export function SimpleCenteredContactForm() {
                   )}
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="email"
@@ -215,6 +208,8 @@ export function SimpleCenteredContactForm() {
                     type="email"
                     name="email"
                     placeholder="hello@johndoe.com"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                     aria-required="true"
                     aria-invalid={!!errors.email}
@@ -228,7 +223,72 @@ export function SimpleCenteredContactForm() {
                   )}
                 </div>
               </div>
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium leading-6 text-neutral-700 dark:text-neutral-400"
+                >
+                  Phone number
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    placeholder="(123) 456-7890"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    aria-required="true"
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? "phone-error" : undefined}
+                    className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md border-0 py-1.5 shadow-input text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                  />
+                  {errors.phone && (
+                    <p id="phone-error" className="text-red-500 text-sm">
+                      {errors.phone}
+                    </p>
+                  )}
+                </div>
+              </div>
 
+              <div className="py-4">
+                <p className="block text-sm font-medium leading-6 text-neutral-700 dark:text-neutral-400">
+                  Preferred method of contact:
+                </p>
+                <div className="flex items-center mt-2">
+                  <input
+                    id="contact-method-email"
+                    type="checkbox"
+                    name="contactMethodEmail" // Changed name to be unique
+                    checked={formData.contactMethod.email}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  <label
+                    htmlFor="contact-method-email"
+                    className="text-sm text-neutral-700 dark:text-neutral-400"
+                  >
+                    Email
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    id="contact-method-phone"
+                    type="checkbox"
+                    name="contactMethodPhone" // Changed name to be unique
+                    checked={formData.contactMethod.phone}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  <label
+                    htmlFor="contact-method-phone"
+                    className="text-sm text-neutral-700 dark:text-neutral-400"
+                  >
+                    Phone
+                  </label>
+                </div>
+              </div>
               <div>
                 <label
                   htmlFor="message"
@@ -242,6 +302,8 @@ export function SimpleCenteredContactForm() {
                     id="message"
                     name="message"
                     placeholder="Enter your message here"
+                    value={formData.message}
+                    onChange={handleChange}
                     required
                     minLength={10}
                     aria-required="true"
@@ -258,7 +320,6 @@ export function SimpleCenteredContactForm() {
                   )}
                 </div>
               </div>
-
               <div>
                 <button
                   type="submit"
