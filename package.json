@@ -10,7 +10,7 @@
     "email": "email dev --dir components/emails"
   },
   "dependencies": {
-    "@react-email/components": "^0.0.25",
+    "@react-email/components": "0.0.25",
     "@tabler/icons-react": "^3.19.0",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/react": "^3.0.0",
