@@ -217,7 +217,7 @@ export const Header = () => {
         id="hero-heading"
         className="text-5xl md:text-7xl font-bold dark:text-white"
       >
-        ELA Pressure Washing
+        ELA Pressure <br /> Washing And <br /> Steam Cleaning
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 mb-12">
         At ELA Pressure Washing, we provide expert pressure washing and steam

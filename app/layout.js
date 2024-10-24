@@ -3,12 +3,12 @@ import { NavbarWithChildren } from "@/components/ui/nav";
 import { CenteredWithLogo } from "@/components/ui/footer";
 
 export const metadata = {
-  title: "ELA Pressure Washing",
+  title: "ELA Pressure Washing And Steam Cleaning",
   description:
     "ELA Pressure Washing provides professional pressure washing, steam cleaning, and surface restoration for residential, commercial, and heritage properties.",
   keywords:
     "pressure washing, steam cleaning, heritage site cleaning, high pressure wash, soft wash, chemical treatments, sealing, roof cleaning, biocide treatments, driveway lifting, patio re-pointing, graffiti removal, chewing gum removal, residential, commercial,",
-  author: "ELA Pressure Washing",
+  author: "ELA Pressure Washing And Steam Cleaning",
   robots: "index, follow",
   canonicalUrl: "https://www.elapressurewashing.co.uk",
 };
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "ELA Pressure Washing",
+    name: "ELA Pressure Washing And Steam Cleaning",
     description:
       "ELA Pressure Washing provides professional pressure washing, steam cleaning, and surface restoration for residential, commercial, and heritage properties.",
     url: "https://www.elapressurewashing.co.uk",
@@ -48,7 +48,10 @@ export default function RootLayout({ children }) {
           content="https://www.elapressurewashing.co.uk"
         />
         <meta property="og:image" content="/assets/opengraph.png" />
-        <meta property="og:site_name" content="ELA Pressure Washing" />
+        <meta
+          property="og:site_name"
+          content="ELA Pressure Washing And Steam Cleaning"
+        />
         <meta name="twitter:image" content="/assets/opengraph.png" />
 
         <link rel="icon" href="/assets/favicon.ico" />
