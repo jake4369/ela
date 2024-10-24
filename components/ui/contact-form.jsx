@@ -177,6 +177,7 @@ export function SimpleCenteredContactForm() {
     } catch (error) {
       console.error(error);
       // Handle submission error (e.g., display an error message)
+      alert("Error sending message. Please try again");
     } finally {
       setSubmitting(false); // Always reset submitting state
     }
