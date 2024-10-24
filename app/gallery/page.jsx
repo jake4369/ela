@@ -113,7 +113,7 @@ const Page = () => {
       </div>
 
       <div>
-        <h2 className="text-center mb-8 text-xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-2xl">
+        <h2 className="text-center mb-8 text-xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-2xl px-4">
           Follow us on social media to see more of our results
         </h2>
 
