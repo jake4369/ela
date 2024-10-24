@@ -13,8 +13,8 @@ export default function Email({
       <body
         style={{
           fontFamily: "sans-serif",
-          display: "flex",
-          flexDirection: "column",
+          // display: "flex",
+          // flexDirection: "column",
         }}
       >
         <main
@@ -61,7 +61,7 @@ export default function Email({
 
           <h3>Preferred method of contact:</h3>
 
-          <p>
+          {/* <p>
             {contactMethod.phone && contactMethod.email ? (
               `Email: ${email} or Phone: ${phone}`
             ) : contactMethod.phone ? (
@@ -75,7 +75,7 @@ export default function Email({
             ) : (
               "No contact information available"
             )}
-          </p>
+          </p> */}
 
           <Img
             src="https://i.ibb.co/drmcvWK/logo.png"
