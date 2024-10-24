@@ -83,7 +83,9 @@ export default function Email({
             width="250"
             height="250"
             style={{
+              display: "block",
               alignSelf: "center",
+              margin: "0 auto",
             }}
           />
         </main>
