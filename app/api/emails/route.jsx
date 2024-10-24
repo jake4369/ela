@@ -11,8 +11,8 @@ export async function POST(request) {
     const { data, error } = await resend.emails.send({
       from: `${
         process.env.NODE_ENV === "development"
-          ? "ELA <samuels242@googlemail.com>"
-          : "ELA <samuels242@googlemail.com>"
+          ? "Acme <onboarding@resend.dev>"
+          : "Acme <onboarding@resend.dev>"
       }`,
       to: ["jsamuelsdev@gmail.com"],
       subject: `New Contact Form Submission from ${name}`,
