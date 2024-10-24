@@ -9,11 +9,7 @@ export async function POST(request) {
     console.log(name);
 
     const { data, error } = await resend.emails.send({
-      from: `${
-        process.env.NODE_ENV === "development"
-          ? "Acme <onboarding@resend.dev>"
-          : "Acme <onboarding@resend.dev>"
-      }`,
+      from: `elapressurewashing.co.uk`,
       to: ["jsamuelsdev@gmail.com"],
       subject: `New Contact Form Submission from ${name}`,
       react: Email({ name, email, phone, contactMethod, message }),
