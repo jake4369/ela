@@ -62,9 +62,13 @@ const images = [
   { title: "Example of our work", src: "/assets/images/gallery/21.jpg" },
   { title: "Example of our work", src: "/assets/images/gallery/22.jpg" },
   { title: "Example of our work", src: "/assets/images/gallery/23.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/24.jpg" },
   { title: "Example of our work", src: "/assets/images/gallery/25.jpg" },
   { title: "Example of our work", src: "/assets/images/gallery/26.jpg" },
   { title: "Example of our work", src: "/assets/images/gallery/27.jpeg" },
+  { title: "Example of our work", src: "/assets/images/gallery/28.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/29.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/30.jpg" },
 ];
 
 const Page = () => {
