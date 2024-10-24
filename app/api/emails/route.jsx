@@ -11,10 +11,10 @@ export async function POST(request) {
     const { data, error } = await resend.emails.send({
       from: `${
         process.env.NODE_ENV === "development"
-          ? "Acme <onboarding@resend.dev>"
+          ? "ELA <samuels242@googlemail.com>"
           : "ELA <samuels242@googlemail.com>"
       }`,
-      to: ["samuels242@googlemail.com"],
+      to: ["jsamuelsdev@gmail.com"],
       subject: `New Contact Form Submission from ${name}`,
       react: Email({ name, email, phone, contactMethod, message }),
     });
