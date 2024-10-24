@@ -49,6 +49,7 @@ export function SimpleCenteredContactForm() {
     message: "",
     contactMethod: { email: false, phone: false },
   });
+  const [submitting, setSubmitting] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
@@ -99,10 +100,52 @@ export function SimpleCenteredContactForm() {
     }
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setSubmitting(true);
+
+  //   if (!validateForm()) {
+  //     return; // Don't submit if validation fails
+  //   }
+
+  //   try {
+  //     // Make sure contactMethod is defined
+  //     const response = await fetch("/api/emails", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData), // Send the form data as JSON
+  //     });
+
+  //     if (!response.ok) {
+  //       // Handle the error response as needed
+  //       const errorData = await response.json();
+  //       throw new Error(errorData.message || "An error occurred");
+  //     }
+
+  //     // Reset the form or show success message here
+  //     setFormData({
+  //       name: "",
+  //       email: "",
+  //       phone: "",
+  //       message: "",
+  //       contactMethod: { email: false, phone: false }, // Reset the contact method state as well
+  //     });
+  //     alert("Your message has been sent successfully!"); // Example success message
+  //   } catch (error) {
+  //     console.error(error);
+  //     // Handle submission error (e.g., display an error message)
+  //   } finally {
+  //     setSubmitting(false);
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
 
     if (!validateForm()) {
+      setSubmitting(false); // Ensure setSubmitting is called when validation fails
       return; // Don't submit if validation fails
     }
 
@@ -134,6 +177,8 @@ export function SimpleCenteredContactForm() {
     } catch (error) {
       console.error(error);
       // Handle submission error (e.g., display an error message)
+    } finally {
+      setSubmitting(false); // Always reset submitting state
     }
   };
 
@@ -326,7 +371,7 @@ export function SimpleCenteredContactForm() {
                   className="bg-black relative z-10 hover:bg-black/90 text-white text-sm md:text-sm transition font-medium duration-200 rounded-full px-4 py-2 flex items-center justify-center w-full dark:text-black dark:bg-white dark:hover:bg-neutral-100 dark:hover:shadow-xl"
                   aria-label="Submit form"
                 >
-                  Submit
+                  {submitting ? "Submitting..." : "Submit"}
                 </button>
               </div>
             </form>
