@@ -63,7 +63,10 @@ export default function Email({
 
           <p>
             {contactMethod.phone && contactMethod.email ? (
-              `Email: ${email} or Phone: ${phone}`
+              <>
+                Email: <Link href={`mailto:${email}`}>{email}</Link> or Phone:{" "}
+                <Link href={`tel:${phone}`}>{phone}</Link>
+              </>
             ) : contactMethod.phone ? (
               <>
                 Phone: <Link href={`tel:${phone}`}>{phone}</Link>
