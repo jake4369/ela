@@ -1,7 +1,72 @@
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/spotlight";
 import { FocusCards } from "@/components/ui/focus-cards";
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { CTAWithDashedGridLines } from "@/components/ui/cta-dashed";
+
+const images = [
+  { title: "Example of our work", src: "/assets/images/gallery/1.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/2.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/3.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/4.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/5.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/6.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/7.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/8.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/9.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/10.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/11.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/12.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/13.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/14.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/15.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/16.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/17.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/18.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/19.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/20.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/21.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/22.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/23.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/24.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/25.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/26.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/27.jpeg" },
+  { title: "Example of our work", src: "/assets/images/gallery/28.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/29.jpg" },
+  { title: "Example of our work", src: "/assets/images/gallery/30.jpg" },
+];
+
+const items = [
+  {
+    id: 0,
+    designation: "Follow us",
+    name: "ELA Tiktok channel",
+    image: "/assets/images/cta/tiktok.jpeg",
+    href: "https://www.tiktok.com/@ela_pressure_washing",
+  },
+  {
+    id: 1,
+    designation: "Follow us",
+    name: "ELA Youtube channel",
+    image: "/assets/images/cta/youtube.png",
+    href: "https://www.youtube.com/@elapressurewashing5332",
+  },
+  {
+    id: 2,
+    designation: "Follow us",
+    name: "ELA Instagram profile",
+    image: "/assets/images/cta/instagram.png",
+    href: "https://www.instagram.com/ela.pressurewashing/",
+  },
+  {
+    id: 3,
+    designation: "Follow us",
+    name: "ELA Facebook page",
+    image: "/assets/images/cta/facebook.png",
+    href: "https://www.facebook.com/profile.php?id=61555129179931&sk=photos",
+  },
+];
 
 function SpotlightPreview() {
   return (
@@ -38,46 +103,23 @@ function SpotlightPreview() {
   );
 }
 
-const images = [
-  { title: "Example of our work", src: "/assets/images/gallery/1.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/2.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/3.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/4.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/5.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/6.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/7.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/8.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/9.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/10.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/11.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/12.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/13.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/14.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/15.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/16.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/17.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/18.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/19.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/20.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/21.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/22.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/23.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/24.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/25.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/26.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/27.jpeg" },
-  { title: "Example of our work", src: "/assets/images/gallery/28.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/29.jpg" },
-  { title: "Example of our work", src: "/assets/images/gallery/30.jpg" },
-];
-
 const Page = () => {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <SpotlightPreview />
 
-      <div id="images" className="mb-40 w-[87.2%] mx-auto">
+      <div id="images" className="mb-32 w-[87.2%] mx-auto">
         <FocusCards cards={images} />
+      </div>
+
+      <div>
+        <h2 className="text-center mb-8 text-xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-2xl">
+          Follow us on social media to see more of our results
+        </h2>
+
+        <div className="flex justify-center mx-auto">
+          <AnimatedTooltip items={items} />
+        </div>
       </div>
 
       <CTAWithDashedGridLines />
