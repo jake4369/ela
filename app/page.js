@@ -9,43 +9,45 @@ import CTA from "@/components/cta/CTA";
 const products = [
   {
     id: 0,
-    thumbnail: "/assets/images/hero/hero.jpg",
+    thumbnail: "/assets/images/hero/ela/hero.jpg",
   },
   {
     id: 1,
-    thumbnail: "/assets/images/hero/hero1.jpg",
+    thumbnail: "/assets/images/hero/ela/hero1.jpg",
   },
   {
     id: 2,
-    thumbnail: "/assets/images/hero/hero2.jpg",
+    thumbnail: "/assets/images/hero/ela/hero2.jpg",
   },
   {
     id: 3,
-    thumbnail: "/assets/images/hero/hero3.jpg",
+    thumbnail: "/assets/images/hero/ela/hero3.jpg",
   },
   {
     id: 4,
-    thumbnail: "/assets/images/hero/hero4.jpg",
+    thumbnail: "/assets/images/hero/ela/hero4.jpg",
+  },
+
+  {
+    id: 6,
+    thumbnail: "/assets/images/hero/ela/hero6.jpg",
   },
   {
     id: 5,
-    thumbnail: "/assets/images/hero/hero5.jpg",
-  },
-  {
-    id: 6,
-    thumbnail: "/assets/images/hero/hero6.jpg",
-  },
-  {
-    id: 7,
-    thumbnail: "/assets/images/hero/hero7.jpg",
-  },
-  {
-    id: 8,
-    thumbnail: "/assets/images/hero/hero8.jpg",
+    thumbnail: "/assets/images/hero/ela/hero5.png",
   },
   {
     id: 9,
-    thumbnail: "/assets/images/hero/hero9.jpg",
+    thumbnail: "/assets/images/hero/ela/hero9.jpg",
+  },
+  {
+    id: 8,
+    thumbnail: "/assets/images/hero/ela/hero8.jpg",
+  },
+
+  {
+    id: 7,
+    thumbnail: "/assets/images/hero/ela/hero7.jpg",
   },
 ];
 
