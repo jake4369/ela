@@ -46,6 +46,34 @@ function AppleCardsCarousel() {
 
 const data = [
   {
+    src: "/assets/images/about/crane.jpeg",
+    alt: "Pressure washing walls from a crane",
+  },
+  {
+    src: "/assets/images/carousel/civic.jpg",
+    alt: "Wolverhampton Civic Centre",
+  },
+  {
+    src: "/assets/images/carousel/shopping.jpg",
+    alt: "Shopping center walkway clean",
+  },
+  {
+    src: "/assets/images/carousel/barbers.jpg",
+    alt: "Barbershop exterior cleaned",
+  },
+  {
+    src: "/assets/images/carousel/shutters.jpg",
+    alt: "Shutters being cleaned with pressure washer",
+  },
+  {
+    src: "/assets/images/carousel/gum.jpg",
+    alt: "Removal of gum from pavement",
+  },
+  {
+    src: "/assets/images/carousel/moss.jpg",
+    alt: "Cleaning moss from a walkway",
+  },
+  {
     src: "/assets/images/carousel/drive.jpg",
     alt: "Clean driveway after pressure washing",
   },
@@ -56,22 +84,6 @@ const data = [
   {
     src: "/assets/images/carousel/roof.jpg",
     alt: "Roof before and after pressure washing",
-  },
-  {
-    src: "/assets/images/about/crane.jpeg",
-    alt: "Pressure washing walls from a crane",
-  },
-  {
-    src: "/assets/images/carousel/barbers.jpg",
-    alt: "Barbershop exterior cleaned",
-  },
-  {
-    src: "/assets/images/carousel/gum.jpg",
-    alt: "Removal of gum from pavement",
-  },
-  {
-    src: "/assets/images/carousel/moss.jpg",
-    alt: "Cleaning moss from a walkway",
   },
 ];
 
