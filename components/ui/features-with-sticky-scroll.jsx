@@ -10,7 +10,6 @@ import {
 } from "framer-motion";
 import { IconInfoSquareRounded } from "@tabler/icons-react";
 import { HoverBorderGradient } from "./hover-border-gradient";
-import { Compare } from "./compare";
 
 const features = [
   {
@@ -21,11 +20,11 @@ const features = [
     content: (
       <div>
         <Image
-          src="/assets/images/services/house.jpg"
+          src="/assets/images/services/roofpro.svg"
           alt="A well-maintained house exterior after pressure washing"
           height="500"
           width="500"
-          className="rounded-lg"
+          className="rounded-lg w-full h-full"
         />
       </div>
     ),
@@ -290,7 +289,10 @@ export const ScrollContentMobile = ({ item, index }) => {
             {item.description}
           </motion.h3>
           {item.title === "Our Complete Service Solutions" && (
-            <Link href="/services" aria-label="Click button to view all services">
+            <Link
+              href="/services"
+              aria-label="Click button to view all services"
+            >
               <HoverBorderGradient className="py-4 px-8">
                 View Services
               </HoverBorderGradient>
