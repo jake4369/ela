@@ -32,6 +32,11 @@ const content = [
       "Chemical treatments provide an extra level of cleaning power, targeting deep-seated stains, mold, mildew, and other contaminants that standard cleaning methods may struggle to remove. By using specialized cleaning solutions, we break down and eliminate these unwanted substances, ensuring a thorough clean that enhances the appearance and durability of your surfaces. This treatment is especially useful for surfaces that have been neglected or require heavy-duty cleaning.",
   },
   {
+    title: "Acid Cleaning for New Homes",
+    description:
+      "Acid cleaning is a specialized process we use to remove construction debris, mortar stains, and other residues from brickwork, stone, and concrete surfaces in new build homes. This method involves the safe application of a mild acid solution, which dissolves and cleans away tough stains, leaving the surfaces fresh and spotless. Our team is highly trained in handling the process efficiently and safely, ensuring no damage to the surfaces while delivering a pristine finish.",
+  },
+  {
     title: "Sealing",
     description:
       "Our professional sealing services offer long-term protection for outdoor surfaces like patios, driveways, and decks. By applying a high-quality sealant, we create a protective layer that guards against moisture, stains, weathering, and UV damage. This not only extends the life of your surfaces but also enhances their appearance, making them easier to clean and maintain. Sealing helps preserve the beauty and structural integrity of your investment.",
