@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+
+import React, { useId, useState } from "react";
+import { motion } from "framer-motion";
 import { IconMinus, IconPlus } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
@@ -37,118 +38,103 @@ const FAQs = [
     answer:
       "Drying time varies depending on the surface, weather conditions, and the type of service. Typically, pressure-washed surfaces dry in a few hours, while surfaces treated with sealers may take 24 to 48 hours to fully cure. We advise keeping traffic off sealed surfaces until they are completely dry.",
   },
-  //   {
-  //     question: "What are the benefits of sealing my driveway or patio?",
-  //     answer:
-  //       "Sealing helps protect your driveway or patio from water damage, stains, and general wear and tear. It acts as a barrier against the elements, preventing cracks, fading, and other long-term damage, while also enhancing the appearance by giving the surface a fresh, clean look.",
-  //   },
-
-  //   {
-  //     question: "How long will it take to clean my property?",
-  //     answer:
-  //       "The time required depends on the size and condition of the area being cleaned. A standard driveway or patio may take 1 to 2 hours, while larger jobs such as roof cleaning or full house exteriors could take a full day. We provide an estimated timeframe during our initial assessment.",
-  //   },
-  //   {
-  //     question: "What is a biocide treatment, and why do I need it?",
-  //     answer:
-  //       "A biocide treatment is used to kill and prevent the regrowth of harmful organic materials such as mold, algae, lichen, and moss on surfaces like roofs, walls, and driveways. It’s especially useful for preventing future buildup, keeping your surfaces clean for longer periods and reducing the need for frequent cleanings.",
-  //   },
-  //   {
-  //     question:
-  //       "What is driveway sinkage lifting, and when should I consider it?",
-  //     answer:
-  //       "Driveway sinkage lifting is a service that restores uneven or sunken areas of your driveway. If parts of your driveway have become lower than the rest due to soil settling or poor installation, it can lead to drainage issues and trip hazards. Our lifting process levels the surface, making it safe and visually appealing again.",
-  //   },
-]; //
+];
 
 export function FrequentlyAskedQuestionsAccordion() {
-  const [open, setOpen] = useState(null);
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex((previousIndex) => (previousIndex === index ? null : index));
+  };
 
   return (
-    <div
-      className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 pt-20 md:grid-cols-2 md:px-8 md:py-40"
+    <section
       id="faqs"
+      aria-labelledby="faqs-heading"
+      className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 pt-20 md:grid-cols-2 md:px-8 md:py-40"
     >
-      <h2 className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-left md:text-6xl">
+      <h2
+        id="faqs-heading"
+        className="text-center text-4xl font-bold tracking-tight text-neutral-600 dark:text-neutral-50 md:text-left md:text-6xl"
+      >
         Frequently Asked Questions
       </h2>
+
       <div className="divide-y divide-neutral-200 dark:divide-neutral-800">
         {FAQs.map((faq, index) => (
           <FAQItem
-            key={index}
+            key={faq.question}
             question={faq.question}
             answer={faq.answer}
-            open={open}
-            setOpen={setOpen}
+            isOpen={openIndex === index}
+            onToggle={() => toggleFAQ(index)}
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
-const FAQItem = ({ question, answer, setOpen, open }) => {
-  const isOpen = open === question;
-  const questionId = `faq-header-${question.replace(/\s+/g, "-")}`;
-  const answerId = `faq-answer-${question.replace(/\s+/g, "-")}`;
+const FAQItem = ({ question, answer, isOpen, onToggle }) => {
+  const id = useId();
+
+  const questionId = `${id}-question`;
+  const answerId = `${id}-answer`;
 
   return (
-    <div
-      className="cursor-pointer py-4"
-      onClick={() => setOpen(isOpen ? null : question)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          setOpen(isOpen ? null : question);
-          e.preventDefault();
-        }
-      }}
-      role="button"
-      tabIndex={0}
-      aria-expanded={isOpen}
-      aria-controls={answerId}
-    >
-      <div className="flex items-start">
-        <div className="relative mr-4 mt-1 h-6 w-6 flex-shrink-0">
-          <IconPlus
-            className={cn(
-              "absolute inset-0 h-6 w-6 transform text-blue-500 transition-all duration-200",
-              isOpen && "rotate-90 scale-0"
-            )}
+    <div className="py-4">
+      <h3 className="m-0">
+        <button
+          type="button"
+          id={questionId}
+          onClick={onToggle}
+          aria-expanded={isOpen}
+          aria-controls={answerId}
+          className="flex w-full items-start gap-4 rounded-md text-left text-lg font-medium text-neutral-700 dark:text-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
+        >
+          <span
+            className="relative mt-1 h-6 w-6 flex-shrink-0"
             aria-hidden="true"
-          />
-          <IconMinus
-            className={cn(
-              "absolute inset-0 h-6 w-6 rotate-90 scale-0 transform text-blue-500 transition-all duration-200",
-              isOpen && "rotate-0 scale-100"
-            )}
-            aria-hidden="true"
-          />
-        </div>
-        <div>
-          <h4
-            className="text-lg font-medium text-neutral-700 dark:text-neutral-200"
-            id={questionId}
           >
-            {question}
-          </h4>
-          <AnimatePresence mode="wait">
-            {isOpen && (
-              <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: "auto" }}
-                exit={{ height: 0 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="overflow-hidden text-neutral-500 dark:text-neutral-400"
-                id={answerId}
-                aria-labelledby={questionId}
-                aria-hidden={!isOpen} // Hidden when collapsed
-              >
-                <p>{answer}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
+            <IconPlus
+              className={cn(
+                "absolute inset-0 h-6 w-6 transform text-blue-500 dark:text-blue-400 transition-all duration-200",
+                isOpen && "rotate-90 scale-0",
+              )}
+            />
+
+            <IconMinus
+              className={cn(
+                "absolute inset-0 h-6 w-6 rotate-90 scale-0 transform text-blue-500 dark:text-blue-400 transition-all duration-200",
+                isOpen && "rotate-0 scale-100",
+              )}
+            />
+          </span>
+
+          <span>{question}</span>
+        </button>
+      </h3>
+
+      <motion.div
+        id={answerId}
+        role="region"
+        aria-labelledby={questionId}
+        aria-hidden={!isOpen}
+        initial={false}
+        animate={{
+          height: isOpen ? "auto" : 0,
+          opacity: isOpen ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.2,
+          ease: "easeOut",
+        }}
+        className="overflow-hidden"
+      >
+        <p className="pl-10 pt-3 text-base leading-relaxed text-neutral-600 dark:text-neutral-300">
+          {answer}
+        </p>
+      </motion.div>
     </div>
   );
 };
