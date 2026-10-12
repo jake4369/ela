@@ -117,14 +117,14 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className="dark">
-        {/* <NavbarWithChildren />
+        <NavbarWithChildren />
 
         <main className="app">{children}</main>
 
-        <CenteredWithLogo /> */}
+        <CenteredWithLogo />
 
         {/* MAINTENANCE PAGE */}
-        <MaintenancePage />
+        {/* <MaintenancePage /> */}
       </body>
     </html>
   );
