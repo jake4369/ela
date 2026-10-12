@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link";
+
+import { useState } from "react";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -7,310 +8,297 @@ import {
   IconBrandTiktok,
   IconPhone,
 } from "@tabler/icons-react";
-import { useState } from "react";
 
 const socials = [
   {
-    title: "facebook",
+    title: "Facebook",
     href: "https://www.facebook.com/profile.php?id=61555129179931",
-    icon: (
-      <IconBrandFacebook className="h-5 w-5 text-neutral-600 dark:text-neutral-400 hover:text-black" />
-    ),
+    Icon: IconBrandFacebook,
   },
   {
-    title: "instagram",
+    title: "Instagram",
     href: "https://www.instagram.com/ela.pressurewashing/",
-    icon: (
-      <IconBrandInstagram className="h-5 w-5 text-neutral-600 dark:text-neutral-400 hover:text-black" />
-    ),
+    Icon: IconBrandInstagram,
   },
   {
-    title: "youtube",
-    href: "www.youtube.com/@elapressurewashing5332",
-    icon: (
-      <IconBrandYoutube className="h-5 w-5 text-neutral-600 dark:text-neutral-400 hover:text-black" />
-    ),
+    title: "YouTube",
+    href: "https://www.youtube.com/@elapressurewashing5332",
+    Icon: IconBrandYoutube,
   },
   {
-    title: "tiktok",
+    title: "TikTok",
     href: "https://www.tiktok.com/@ela_pressure_washing",
-    icon: (
-      <IconBrandTiktok className="h-5 w-5 text-neutral-600 dark:text-neutral-400 hover:text-black" />
-    ),
+    Icon: IconBrandTiktok,
   },
 ];
 
+const initialFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+  contactMethod: {
+    email: false,
+    phone: false,
+  },
+};
+
+const inputClassName =
+  "block w-full bg-white dark:bg-neutral-900 px-4 rounded-md border-0 py-1.5 shadow-input text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white";
+
+const labelClassName =
+  "block text-sm font-medium leading-6 text-neutral-700 dark:text-neutral-400";
+
 export function SimpleCenteredContactForm() {
   const [errors, setErrors] = useState({});
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "", // Added phone field
-    message: "",
-    contactMethod: { email: false, phone: false },
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [submitting, setSubmitting] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (formData.name.length < 3) {
+    if (formData.name.trim().length < 3) {
       newErrors.name = "Name must be at least 3 characters long.";
     }
-    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(formData.email.trim())) {
       newErrors.email = "Email address is invalid.";
     }
-    if (!/^\+?\d{10,15}$/.test(formData.phone)) {
-      // Add phone validation (10-15 digits)
-      newErrors.phone = "Phone number is invalid.";
+
+    const normalizedPhone = formData.phone.replace(/[\s().-]/g, "");
+
+    const phonePattern = /^\+?\d{10,15}$/;
+
+    if (!phonePattern.test(normalizedPhone)) {
+      newErrors.phone = "Enter a valid phone number (10–15 digits).";
     }
-    if (formData.message.length < 10) {
+
+    if (formData.message.trim().length < 10) {
       newErrors.message = "Message must be at least 10 characters long.";
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // Return true if no errors
+
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
 
     if (type === "checkbox") {
-      let key;
-      if (name === "contactMethodEmail") {
-        key = "email";
-      } else if (name === "contactMethodPhone") {
-        key = "phone";
-      }
+      const method = name === "contactMethodEmail" ? "email" : "phone";
 
-      setFormData((prevData) => ({
-        ...prevData,
+      setFormData((previous) => ({
+        ...previous,
         contactMethod: {
-          ...prevData.contactMethod,
-          [key]: checked,
+          ...previous.contactMethod,
+          [method]: checked,
         },
       }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-      // Clear error for the field being edited
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+
+      return;
     }
+
+    setFormData((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+
+    setErrors((previous) => ({
+      ...previous,
+      [name]: undefined,
+    }));
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setSubmitting(true);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  //   if (!validateForm()) {
-  //     return; // Don't submit if validation fails
-  //   }
-
-  //   try {
-  //     // Make sure contactMethod is defined
-  //     const response = await fetch("/api/emails", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(formData), // Send the form data as JSON
-  //     });
-
-  //     if (!response.ok) {
-  //       // Handle the error response as needed
-  //       const errorData = await response.json();
-  //       throw new Error(errorData.message || "An error occurred");
-  //     }
-
-  //     // Reset the form or show success message here
-  //     setFormData({
-  //       name: "",
-  //       email: "",
-  //       phone: "",
-  //       message: "",
-  //       contactMethod: { email: false, phone: false }, // Reset the contact method state as well
-  //     });
-  //     alert("Your message has been sent successfully!"); // Example success message
-  //   } catch (error) {
-  //     console.error(error);
-  //     // Handle submission error (e.g., display an error message)
-  //   } finally {
-  //     setSubmitting(false);
-  //   }
-  // };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-
-    if (!validateForm()) {
-      setSubmitting(false); // Ensure setSubmitting is called when validation fails
-      return; // Don't submit if validation fails
+    if (submitting || !validateForm()) {
+      return;
     }
 
+    setSubmitting(true);
+
     try {
-      // Make sure contactMethod is defined
       const response = await fetch("/api/emails", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData), // Send the form data as JSON
+        body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
-        // Handle the error response as needed
-        const errorData = await response.json();
-        throw new Error(errorData.message || "An error occurred");
+        const errorData = await response.json().catch(() => ({}));
+
+        throw new Error(errorData?.message || "Unable to send your message.");
       }
 
-      // Reset the form or show success message here
       setFormData({
         name: "",
         email: "",
         phone: "",
         message: "",
-        contactMethod: { email: false, phone: false }, // Reset the contact method state as well
+        contactMethod: {
+          email: false,
+          phone: false,
+        },
       });
-      alert("Your message has been sent successfully!"); // Example success message
+
+      setErrors({});
+
+      alert("Your message has been sent successfully!");
     } catch (error) {
-      console.error(error);
-      // Handle submission error (e.g., display an error message)
-      alert("Error sending message. Please try again");
+      console.error("Contact form submission failed:", error);
+
+      alert("Error sending your message. Please try again.");
     } finally {
-      setSubmitting(false); // Always reset submitting state
+      setSubmitting(false);
     }
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-slate-950 w-full flex items-center justify-center pt-20">
-      <div
-        className="flex relative px-4 z-20 items-center w-full justify-center py-10"
-        role="main"
-      >
+    <section className="bg-gray-50 dark:bg-slate-950 w-full flex items-center justify-center pt-20">
+      <div className="flex relative px-4 z-20 items-center w-full justify-center py-10">
         <div className="mx-auto w-full max-w-lg bg-white dark:bg-neutral-950 px-4 md:px-10 py-8 shadow-input rounded-3xl">
           <div>
             <h1 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-black dark:text-white">
-              Contact Us
+              Contact ELA Pressure Washing
             </h1>
+
             <p className="mt-4 text-neutral-600 dark:text-neutral-400 text-sm max-w-sm">
-              Have questions or ready to book a service? Give us a call or fill
-              out the form below, and the ELA Pressure Washing team will get
-              back to you promptly with a free quote and answers to your
-              questions.
+              Looking for professional pressure washing, steam cleaning or
+              exterior cleaning services in Wolverhampton and the West Midlands?
+              Contact ELA Pressure Washing for a free quote or to discuss your
+              residential or commercial cleaning requirements.
             </p>
+
             <a
               href="tel:+447852435168"
-              className="flex align-center justify-center mt-4 text-neutral-600 dark:text-white text-sm max-w-sm"
-              aria-label="Call us at 07852435168"
+              className="flex items-center justify-center mt-4 text-neutral-600 dark:text-white text-sm max-w-sm hover:underline"
+              aria-label="Call ELA Pressure Washing on 07852 435168"
             >
               <IconPhone aria-hidden="true" />
-              <span className="ml-2">07852435168</span>
+              <span className="ml-2">07852 435168</span>
             </a>
           </div>
 
           <div className="py-10">
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium leading-6 text-neutral-700 dark:text-neutral-400"
-                >
+                <label htmlFor="name" className={labelClassName}>
                   Full Name
                 </label>
+
                 <div className="mt-2">
                   <input
                     id="name"
                     type="text"
                     name="name"
                     placeholder="John Doe"
+                    autoComplete="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
                     minLength={3}
-                    aria-required="true"
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "name-error" : undefined}
-                    className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md border-0 py-1.5 shadow-input text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                    className={inputClassName}
                   />
+
                   {errors.name && (
-                    <p id="name-error" className="text-red-500 text-sm">
+                    <p
+                      id="name-error"
+                      role="alert"
+                      className="text-red-500 text-sm mt-1"
+                    >
                       {errors.name}
                     </p>
                   )}
                 </div>
               </div>
+
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium leading-6 text-neutral-700 dark:text-neutral-400"
-                >
-                  Email address
+                <label htmlFor="email" className={labelClassName}>
+                  Email Address
                 </label>
+
                 <div className="mt-2">
                   <input
                     id="email"
                     type="email"
                     name="email"
-                    placeholder="hello@johndoe.com"
+                    placeholder="hello@example.com"
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    aria-required="true"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "email-error" : undefined}
-                    className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md border-0 py-1.5 shadow-input text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                    className={inputClassName}
                   />
+
                   {errors.email && (
-                    <p id="email-error" className="text-red-500 text-sm">
+                    <p
+                      id="email-error"
+                      role="alert"
+                      className="text-red-500 text-sm mt-1"
+                    >
                       {errors.email}
                     </p>
                   )}
                 </div>
               </div>
+
               <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium leading-6 text-neutral-700 dark:text-neutral-400"
-                >
-                  Phone number
+                <label htmlFor="phone" className={labelClassName}>
+                  Phone Number
                 </label>
+
                 <div className="mt-2">
                   <input
                     id="phone"
                     type="tel"
                     name="phone"
-                    placeholder="(123) 456-7890"
+                    placeholder="07123 456789"
+                    autoComplete="tel"
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    aria-required="true"
                     aria-invalid={!!errors.phone}
                     aria-describedby={errors.phone ? "phone-error" : undefined}
-                    className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md border-0 py-1.5 shadow-input text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                    className={inputClassName}
                   />
+
                   {errors.phone && (
-                    <p id="phone-error" className="text-red-500 text-sm">
+                    <p
+                      id="phone-error"
+                      role="alert"
+                      className="text-red-500 text-sm mt-1"
+                    >
                       {errors.phone}
                     </p>
                   )}
                 </div>
               </div>
 
-              <div className="py-4">
-                <p className="block text-sm font-medium leading-6 text-neutral-700 dark:text-neutral-400">
-                  Preferred method of contact:
-                </p>
+              <fieldset className="py-4">
+                <legend className={labelClassName}>
+                  Preferred Method of Contact
+                </legend>
+
                 <div className="flex items-center mt-2">
                   <input
                     id="contact-method-email"
                     type="checkbox"
-                    name="contactMethodEmail" // Changed name to be unique
+                    name="contactMethodEmail"
                     checked={formData.contactMethod.email}
                     onChange={handleChange}
                     className="mr-2"
                   />
+
                   <label
                     htmlFor="contact-method-email"
                     className="text-sm text-neutral-700 dark:text-neutral-400"
@@ -318,15 +306,17 @@ export function SimpleCenteredContactForm() {
                     Email
                   </label>
                 </div>
-                <div className="flex items-center">
+
+                <div className="flex items-center mt-2">
                   <input
                     id="contact-method-phone"
                     type="checkbox"
-                    name="contactMethodPhone" // Changed name to be unique
+                    name="contactMethodPhone"
                     checked={formData.contactMethod.phone}
                     onChange={handleChange}
                     className="mr-2"
                   />
+
                   <label
                     htmlFor="contact-method-phone"
                     className="text-sm text-neutral-700 dark:text-neutral-400"
@@ -334,65 +324,70 @@ export function SimpleCenteredContactForm() {
                     Phone
                   </label>
                 </div>
-              </div>
+              </fieldset>
+
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium leading-6 text-neutral-700 dark:text-neutral-400"
-                >
-                  Message
+                <label htmlFor="message" className={labelClassName}>
+                  Your Message
                 </label>
+
                 <div className="mt-2">
                   <textarea
-                    rows={5}
                     id="message"
                     name="message"
-                    placeholder="Enter your message here"
+                    rows={5}
+                    placeholder="Tell us about your cleaning requirements..."
                     value={formData.message}
                     onChange={handleChange}
                     required
                     minLength={10}
-                    aria-required="true"
                     aria-invalid={!!errors.message}
                     aria-describedby={
                       errors.message ? "message-error" : undefined
                     }
-                    className="block w-full bg-white dark:bg-neutral-900 px-4 rounded-md border-0 py-1.5 shadow-input text-black placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 dark:text-white"
+                    className={inputClassName}
                   />
+
                   {errors.message && (
-                    <p id="message-error" className="text-red-500 text-sm">
+                    <p
+                      id="message-error"
+                      role="alert"
+                      className="text-red-500 text-sm mt-1"
+                    >
                       {errors.message}
                     </p>
                   )}
                 </div>
               </div>
+
               <div>
                 <button
                   type="submit"
-                  className="bg-black relative z-10 hover:bg-black/90 text-white text-sm md:text-sm transition font-medium duration-200 rounded-full px-4 py-2 flex items-center justify-center w-full dark:text-black dark:bg-white dark:hover:bg-neutral-100 dark:hover:shadow-xl"
-                  aria-label="Submit form"
+                  disabled={submitting}
+                  className="bg-black relative z-10 hover:bg-black/90 text-white text-sm md:text-sm transition font-medium duration-200 rounded-full px-4 py-2 flex items-center justify-center w-full dark:text-black dark:bg-white dark:hover:bg-neutral-100 dark:hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Submitting..." : "Submit"}
+                  {submitting ? "Sending your enquiry..." : "Send Enquiry"}
                 </button>
               </div>
             </form>
           </div>
 
-          {/* Social links */}
           <div className="flex items-center justify-center space-x-4 py-4">
-            {socials.map((social) => (
-              <Link
-                href={social.href}
-                key={social.title}
+            {socials.map(({ title, href, Icon }) => (
+              <a
+                href={href}
+                key={title}
                 target="_blank"
-                aria-label={`Follow us on ${social.title}`}
+                rel="noopener noreferrer"
+                aria-label={`Follow ELA Pressure Washing on ${title}`}
+                className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
               >
-                {social.icon}
-              </Link>
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </a>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

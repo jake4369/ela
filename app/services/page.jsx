@@ -1,13 +1,61 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { Spotlight } from "@/components/ui/spotlight";
 import { CTAWithDashedGridLines } from "@/components/ui/cta-dashed";
 
+// ==========================================
+// SERVICES PAGE SEO METADATA
+// ==========================================
+
+const pageTitle = "Pressure Washing & Exterior Cleaning in Wolverhampton | ELA";
+
+const pageDescription =
+  "Explore pressure washing, steam cleaning, roof cleaning, sealing and specialist exterior cleaning services in Wolverhampton and the West Midlands. Request a quote.";
+
+export const metadata = {
+  title: {
+    absolute: pageTitle,
+  },
+
+  description: pageDescription,
+
+  alternates: {
+    canonical: "/services",
+  },
+
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: "/services",
+    siteName: "ELA Pressure Washing",
+    locale: "en_GB",
+    type: "website",
+    images: [
+      {
+        url: "/assets/opengraph.png",
+        alt: "ELA Pressure Washing exterior cleaning services",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: ["/assets/opengraph.png"],
+  },
+};
+
+// ==========================================
+// SERVICES CONTENT
+// ==========================================
+
 const content = [
   {
     image: "/assets/images/about/header.jpg",
-    title: "Cleaning",
+    title: "Exterior Cleaning",
     description:
       "Our expert cleaning services are designed to restore and rejuvenate the appearance of outdoor surfaces by removing accumulated dirt, algae, grime, and organic matter. Whether it’s walkways, driveways, patios, or walls, we use the latest cleaning techniques and equipment to ensure a thorough clean, bringing back the original beauty of your property and enhancing its overall appeal.",
   },
@@ -84,30 +132,30 @@ const content = [
   },
 ];
 
+// ==========================================
+// SERVICES HERO SECTION
+// ==========================================
+
 function SpotlightPreview() {
   return (
-    <div
-      className="h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden"
-      role="banner" // Indicates this is a header region for assistive technologies
-    >
+    <div className="h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
+
       <div className="flex flex-col p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0">
-        <h1
-          className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50"
-          aria-label="Our Services" // Provides context for screen readers
-        >
-          Our Services
+        <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+          Pressure Washing & Exterior Cleaning Services
         </h1>
+
         <div className="relative">
           <p className="mt-4 font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-8">
-            We provide professional cleaning and maintenance services to keep
-            your property in top shape. From pressure washing to soft washing,
-            roof cleaning, and sealing, our expert team handles all your outdoor
-            care needs. With a focus on quality and eco-friendly solutions, we
-            ensure your home or business looks great and stays protected.
+            ELA Pressure Washing provides professional exterior cleaning and
+            maintenance services in Wolverhampton and the West Midlands. From
+            pressure washing and steam cleaning to soft washing, roof cleaning
+            and sealing, we help residential and commercial customers restore
+            and maintain their outdoor surfaces.
           </p>
 
           <p className="font-normal w-[87.2%] text-base text-neutral-300 max-w-lg text-center mx-auto mb-14">
@@ -116,7 +164,7 @@ function SpotlightPreview() {
 
           <div className="scroll-downs" role="img" aria-label="Scroll down">
             <div className="mousey">
-              <div className="mousey-scroller"></div>
+              <div className="mousey-scroller" />
             </div>
           </div>
         </div>
@@ -125,38 +173,45 @@ function SpotlightPreview() {
   );
 }
 
+// ==========================================
+// SERVICES PAGE
+// ==========================================
+
 const Page = () => {
   return (
     <>
       <SpotlightPreview />
+
       <TracingBeam className="px-6">
         <div className="max-w-2xl mx-auto antialiased pt-4 relative">
-          {content.map((item, index) => (
-            <div key={`content-${index}`} className="mb-10">
+          {content.map((item) => (
+            <div key={item.title} className="mb-10">
               <div className="text-sm prose prose-sm dark:prose-invert">
-                {item?.image && (
+                {item.image && (
                   <Image
                     src={item.image}
-                    alt={`Thumbnail for ${item.title}`} // Descriptive alt text for accessibility
-                    height="1000"
-                    width="1000"
+                    alt="Exterior cleaning services provided by ELA Pressure Washing"
+                    height={1000}
+                    width={1000}
                     className="rounded-lg mb-10 object-cover"
                   />
                 )}
-                <h2 className="mb-4 text-2xl md:text-4xl">{item.title}</h2>{" "}
-                {/* Changed to h2 for better SEO structure */}
-                <p className={`text-base ${item.href && "mb-4"}`}>
+
+                <h2 className="mb-4 text-2xl md:text-4xl">{item.title}</h2>
+
+                <p className={`text-base ${item.href ? "mb-4" : ""}`}>
                   {item.description}
                 </p>
-                {item.href ? (
+
+                {item.href && (
                   <p>
-                    Learn more about cleaning heritage sites{" "}
+                    Learn more about the conservation and care of historic
+                    buildings in the{" "}
                     <Link href={item.href} className="underline">
-                      <strong>here</strong>
+                      <strong>Historic England technical guidance</strong>
                     </Link>
+                    .
                   </p>
-                ) : (
-                  ""
                 )}
               </div>
             </div>
