@@ -48,7 +48,7 @@ export const metadata = {
 const products = [
   {
     id: 0,
-    thumbnail: "/assets/images/hero/ela/hero.jpg",
+    thumbnail: "/assets/images/hero/ela/hero.webp",
   },
   {
     id: 1,
