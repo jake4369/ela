@@ -5,26 +5,20 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import { Spotlight } from "@/components/ui/spotlight";
 import { CTAWithDashedGridLines } from "@/components/ui/cta-dashed";
 
-// ==========================================
-// SERVICES PAGE SEO METADATA
-// ==========================================
-
-const pageTitle = "Pressure Washing & Exterior Cleaning in Wolverhampton | ELA";
+const pageTitle =
+  "Exterior Cleaning Services in Wolverhampton | ELA Pressure Washing";
 
 const pageDescription =
-  "Explore pressure washing, steam cleaning, roof cleaning, sealing and specialist exterior cleaning services in Wolverhampton and the West Midlands. Request a quote.";
+  "Explore pressure washing, driveway and patio cleaning, roof cleaning, steam cleaning and sealing in Wolverhampton and the West Midlands. Request a quote.";
 
 export const metadata = {
   title: {
     absolute: pageTitle,
   },
-
   description: pageDescription,
-
   alternates: {
     canonical: "/services",
   },
-
   openGraph: {
     title: pageTitle,
     description: pageDescription,
@@ -39,7 +33,6 @@ export const metadata = {
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
@@ -47,10 +40,6 @@ export const metadata = {
     images: ["/assets/opengraph.png"],
   },
 };
-
-// ==========================================
-// SERVICES CONTENT
-// ==========================================
 
 const content = [
   {
@@ -132,10 +121,6 @@ const content = [
   },
 ];
 
-// ==========================================
-// SERVICES HERO SECTION
-// ==========================================
-
 function SpotlightPreview() {
   return (
     <div className="h-[100vh] w-full rounded-md flex md:items-center md:justify-center bg-slate-950 antialiased bg-grid-white/[0.02] relative overflow-hidden">
@@ -173,11 +158,7 @@ function SpotlightPreview() {
   );
 }
 
-// ==========================================
-// SERVICES PAGE
-// ==========================================
-
-const Page = () => {
+export default function Page() {
   return (
     <>
       <SpotlightPreview />
@@ -222,6 +203,4 @@ const Page = () => {
       <CTAWithDashedGridLines />
     </>
   );
-};
-
-export default Page;
+}
