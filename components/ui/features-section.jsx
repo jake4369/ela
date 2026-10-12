@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import createGlobe from "cobe";
 import { motion } from "framer-motion";
 import { Compare } from "./compare";
 
@@ -239,6 +238,7 @@ export const SkeletonFour = () => {
 
 export const Globe = ({ className }) => {
   const canvasRef = useRef(null);
+  const wrapperRef = useRef(null);
 
   const [globeUnavailable, setGlobeUnavailable] = useState(false);
 
@@ -246,64 +246,98 @@ export const Globe = ({ className }) => {
     if (globeUnavailable) return;
 
     const canvas = canvasRef.current;
+    const wrapper = wrapperRef.current;
 
-    if (!canvas) return;
+    if (!canvas || !wrapper) return;
 
+    let active = true;
     let globe = null;
+    let observer = null;
+    let started = false;
     let phi = 0;
-    let disposed = false;
 
     const handleContextLost = (event) => {
       event.preventDefault();
 
-      if (!disposed) {
+      if (active) {
         setGlobeUnavailable(true);
       }
     };
 
     canvas.addEventListener("webglcontextlost", handleContextLost);
 
-    try {
-      globe = createGlobe(canvas, {
-        devicePixelRatio: 2,
-        width: 600 * 2,
-        height: 600 * 2,
-        phi: 0,
-        theta: 0,
-        dark: 1,
-        diffuse: 1.2,
-        mapSamples: 16000,
-        mapBrightness: 6,
-        baseColor: [0.3, 0.3, 0.3],
-        markerColor: [0.1, 0.8, 1],
-        glowColor: [1, 1, 1],
+    const initializeGlobe = async () => {
+      if (started || !active) return;
 
-        markers: [
-          {
-            location: [37.7595, -122.4367],
-            size: 0.03,
+      started = true;
+
+      try {
+        const { default: createGlobe } = await import("cobe");
+
+        if (!active) return;
+
+        globe = createGlobe(canvas, {
+          devicePixelRatio: 2,
+          width: 600 * 2,
+          height: 600 * 2,
+          phi: 0,
+          theta: 0,
+          dark: 1,
+          diffuse: 1.2,
+          mapSamples: 16000,
+          mapBrightness: 6,
+          baseColor: [0.3, 0.3, 0.3],
+          markerColor: [0.1, 0.8, 1],
+          glowColor: [1, 1, 1],
+
+          markers: [
+            {
+              location: [37.7595, -122.4367],
+              size: 0.03,
+            },
+            {
+              location: [40.7128, -74.006],
+              size: 0.1,
+            },
+          ],
+
+          onRender: (state) => {
+            state.phi = phi;
+            phi += 0.01;
           },
-          {
-            location: [40.7128, -74.006],
-            size: 0.1,
-          },
-        ],
+        });
+      } catch (error) {
+        console.warn("ELA Globe: WebGL initialisation failed.", error);
 
-        onRender: (state) => {
-          state.phi = phi;
-          phi += 0.01;
-        },
-      });
-    } catch (error) {
-      console.warn("ELA Globe: WebGL initialisation failed.", error);
-
-      if (!disposed) {
-        setGlobeUnavailable(true);
+        if (active) {
+          setGlobeUnavailable(true);
+        }
       }
+    };
+
+    if (typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            observer.disconnect();
+            initializeGlobe();
+          }
+        },
+        {
+          rootMargin: "400px 0px",
+          threshold: 0,
+        },
+      );
+
+      observer.observe(wrapper);
+    } else {
+      initializeGlobe();
     }
 
     return () => {
-      disposed = true;
+      active = false;
+
+      observer?.disconnect();
 
       canvas.removeEventListener("webglcontextlost", handleContextLost);
 
@@ -318,7 +352,7 @@ export const Globe = ({ className }) => {
   }, [globeUnavailable]);
 
   return (
-    <figure className={className} aria-hidden="true">
+    <figure ref={wrapperRef} className={className} aria-hidden="true">
       {globeUnavailable ? (
         <div
           className="h-[600px] w-[600px] max-w-full rounded-full opacity-60"
