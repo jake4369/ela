@@ -220,8 +220,8 @@ export const SkeletonThree = () => {
 
       <div className="flex flex-1 w-full h-full flex-col space-y-2 relative">
         <Compare
-          firstImage="/assets/images/about/before.svg"
-          secondImage="/assets/images/about/after.svg"
+          firstImage="/assets/images/about/before.webp"
+          secondImage="/assets/images/about/after.webp"
           className="w-full"
         />
       </div>
