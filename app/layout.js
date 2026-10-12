@@ -123,6 +123,7 @@ export default function RootLayout({ children }) {
 
         <CenteredWithLogo /> */}
 
+        {/* MAINTENANCE PAGE */}
         <MaintenancePage />
       </body>
     </html>
