@@ -44,79 +44,79 @@ export const metadata = {
 const content = [
   {
     image: "/assets/images/about/header.jpg",
-    title: "Exterior Cleaning",
+    title: "Driveway, Patio & Exterior Cleaning",
     description:
-      "Our expert cleaning services are designed to restore and rejuvenate the appearance of outdoor surfaces by removing accumulated dirt, algae, grime, and organic matter. Whether it’s walkways, driveways, patios, or walls, we use the latest cleaning techniques and equipment to ensure a thorough clean, bringing back the original beauty of your property and enhancing its overall appeal.",
+      "Restore the appearance of your property's outdoor surfaces with professional exterior cleaning from ELA Pressure Washing. We clean driveways, patios, paths, walls and other suitable hard surfaces, removing built-up dirt, algae, moss and grime. Serving homes and businesses across Wolverhampton and the West Midlands, we select cleaning methods suited to the surface and its condition to achieve a thorough, professional finish.",
   },
   {
-    title: "High Pressure Wash",
+    title: "High-Pressure Washing",
     description:
-      "High-pressure washing uses powerful water jets to remove years of embedded dirt, grime, and stains from hard surfaces such as concrete, brick, and stone. This method is perfect for removing tough contaminants like oil stains, graffiti, and stubborn buildup, leaving surfaces looking fresh and revitalized. It’s a deep-clean solution ideal for heavily soiled areas that require a strong, effective cleaning approach.",
+      "High-pressure washing is an effective way to remove stubborn dirt and surface contamination from suitable hard-wearing materials, including concrete, paving and some types of brickwork. Our professional pressure washing equipment can tackle heavily soiled driveways, patios, pedestrian areas and commercial outdoor spaces. We assess the material and condition of each surface before choosing an appropriate cleaning pressure and technique.",
   },
   {
-    title: "Steam Cleaning",
+    title: "Exterior Steam Cleaning",
     description:
-      "Our steam cleaning service provides a chemical-free, eco-friendly way to deep clean a variety of surfaces. Using high-temperature steam, we effectively remove dirt, grease, bacteria, and allergens without harsh chemicals. Ideal for tiles, grout, upholstery, and some outdoor areas, steam cleaning penetrates deep to lift tough contaminants. This method not only sanitizes but also restores surfaces, making it a safe and effective choice for homes and businesses looking for a thorough clean.",
+      "ELA Pressure Washing provides professional exterior steam cleaning for suitable hard surfaces and areas affected by stubborn grime. Our van-mounted equipment enables us to use high-temperature cleaning methods to help loosen and remove accumulated dirt, grease and surface contamination. Steam cleaning can be particularly useful where heat-assisted cleaning is appropriate, including selected paving, masonry and commercial exterior surfaces. We choose the cleaning method according to the material and the work required.",
   },
   {
-    title: "Soft Wash",
+    title: "Soft Washing",
     description:
-      "Our soft washing service offers a gentle, non-abrasive cleaning solution for delicate surfaces such as roofs, siding, and painted exteriors. Using a combination of low-pressure water and biodegradable cleaning agents, we safely remove dirt, mold, algae, and other contaminants without the risk of damage. Soft washing is perfect for maintaining the integrity of fragile surfaces while achieving a long-lasting clean.",
+      "Not every exterior surface is suitable for high-pressure washing. Soft washing uses a lower-pressure application and appropriate cleaning treatments to address dirt, algae and organic growth on more delicate surfaces. This approach may be suitable for certain roofs, rendered walls, painted exteriors and other surfaces that require a gentler cleaning method. Our team assesses the condition and material of each area before recommending a suitable treatment.",
   },
   {
     title: "Chemical Treatments",
     description:
-      "Chemical treatments provide an extra level of cleaning power, targeting deep-seated stains, mold, mildew, and other contaminants that standard cleaning methods may struggle to remove. By using specialized cleaning solutions, we break down and eliminate these unwanted substances, ensuring a thorough clean that enhances the appearance and durability of your surfaces. This treatment is especially useful for surfaces that have been neglected or require heavy-duty cleaning.",
+      "Some exterior stains and organic deposits require more than water alone. Our specialist cleaning treatments can help address algae, moss, lichen, staining and other contamination on suitable outdoor surfaces. We select cleaning products and application methods according to the material, its condition and the type of contamination, helping achieve more effective results as part of a professional exterior cleaning service.",
   },
   {
-    title: "Acid Cleaning for New Homes",
+    title: "New-Build Brickwork & Acid Cleaning",
     description:
-      "Acid cleaning is a specialized process we use to remove construction debris, mortar stains, and other residues from brickwork, stone, and concrete surfaces in new build homes. This method involves the safe application of a mild acid solution, which dissolves and cleans away tough stains, leaving the surfaces fresh and spotless. Our team is highly trained in handling the process efficiently and safely, ensuring no damage to the surfaces while delivering a pristine finish.",
+      "Newly constructed properties can be left with mortar residue, cement staining and other building-related marks on exterior brickwork and hard surfaces. Our new-build cleaning service includes specialist acid cleaning where appropriate for the material and type of staining. We assess the surface before selecting a treatment, taking care to use methods suitable for the brickwork, stone or concrete involved.",
   },
   {
-    title: "Sealing",
+    title: "Driveway & Patio Sealing",
     description:
-      "Our professional sealing services offer long-term protection for outdoor surfaces like patios, driveways, and decks. By applying a high-quality sealant, we create a protective layer that guards against moisture, stains, weathering, and UV damage. This not only extends the life of your surfaces but also enhances their appearance, making them easier to clean and maintain. Sealing helps preserve the beauty and structural integrity of your investment.",
+      "Professional surface sealing can help protect suitable driveways, patios and paved areas following cleaning. Depending on the material and sealant used, sealing may help reduce the absorption of moisture and staining while making routine maintenance easier. ELA Pressure Washing can advise on suitable sealing options for outdoor surfaces, helping customers maintain their appearance and condition over time.",
   },
   {
-    title: "Water-Based Sealers",
+    title: "Water-Based Surface Sealing",
     description:
-      "Water-based sealers are an eco-friendly option for protecting outdoor surfaces without the use of harsh chemicals. These non-toxic, low-VOC sealants provide effective protection against moisture, staining, and environmental wear, while allowing the surface to breathe. Ideal for patios, pavers, and other porous materials, our water-based sealers ensure long-lasting durability while maintaining a natural, attractive finish.",
+      "Water-based sealers offer an alternative to solvent-based products for certain types of outdoor paving and other suitable surfaces. Depending on the product and material, they can help provide protection against moisture, staining and everyday wear while retaining a natural-looking finish. We consider the surface type and required finish when selecting an appropriate sealing treatment.",
   },
   {
-    title: "Roof Scraping",
+    title: "Roof Moss Removal & Scraping",
     description:
-      "Roof scraping is an essential maintenance service for removing moss, lichen, and other debris that can accumulate on your roof over time. Left unchecked, this buildup can cause damage to shingles, block drainage systems, and lead to long-term issues like leaks. Our roof scraping service carefully and effectively removes these materials, ensuring that your roof stays clean, functional, and in good condition, without causing any damage to the roofing materials.",
+      "Moss and organic debris can accumulate on roof tiles, particularly in shaded or damp conditions. Our roof scraping service focuses on carefully removing moss and loose buildup using methods appropriate for the roofing material and its condition. Removing this accumulation can improve the roof's appearance and help reduce debris entering gutters and drainage channels. Additional treatments may be recommended where suitable.",
   },
   {
     title: "Biocide Treatments",
     description:
-      "Our biocide treatments are designed to eliminate and prevent the regrowth of harmful organic matter such as moss, algae, lichen, and fungi. Applied after cleaning, these treatments work to kill the root causes of growth, providing long-term protection for your surfaces. Ideal for roofs, walls, and other outdoor areas, biocide treatments help maintain a cleaner, healthier environment by stopping the recurrence of organic growth.",
+      "Biocide treatments can be used as part of an exterior cleaning programme to address moss, algae, lichen and other organic growth. Applied where suitable, these specialist treatments can help control remaining biological contamination and discourage regrowth over time. They may be used on selected roofs, walls, paving and other outdoor surfaces following assessment and cleaning.",
   },
   {
     title: "Driveway Sinkage Lifting",
     description:
-      "Over time, driveways can experience sinking or uneven surfaces due to soil movement, poor installation, or heavy traffic. Our driveway sinkage lifting service corrects these issues by carefully raising the sunken sections and restoring them to their original level. This process not only improves the overall appearance of your driveway but also enhances safety by eliminating trip hazards and ensuring proper water drainage.",
+      "Sunken or uneven sections of a driveway can affect its appearance, drainage and usability. Our driveway sinkage lifting service focuses on raising and levelling suitable areas where paving has settled or become uneven. We assess the affected sections to determine whether lifting and reinstatement are appropriate, helping restore a more even surface and reduce potential trip hazards.",
   },
   {
-    title: "Re-pointing Patios",
+    title: "Patio Repointing",
     description:
-      "Re-pointing your patio involves renewing the mortar between bricks or stones, which can crack and deteriorate over time due to weather exposure and natural wear. Our re-pointing service restores the structure and appearance of your patio, providing a fresh, clean finish while ensuring the stability of the surface. By replacing old, crumbling mortar with new material, we help prevent water penetration and extend the lifespan of your patio.",
+      "Over time, joints between patio slabs, bricks and paving stones can deteriorate, crack or become loose. Our patio repointing service involves removing damaged jointing material and replacing it with a suitable finish where required. Repointing can improve the appearance of an established patio and help maintain the condition of its paved surface.",
   },
   {
     title: "Graffiti Removal",
     description:
-      "Our graffiti removal service utilizes specialized techniques and eco-friendly products to effectively remove unwanted graffiti from walls, fences, and other surfaces. We restore the original look of your property while ensuring that the removal process is safe and effective.",
+      "Unwanted graffiti can affect the appearance of commercial buildings, walls, shutters and other exterior surfaces. ELA Pressure Washing provides specialist graffiti removal using cleaning methods selected for the surface and type of marking. Whether dealing with painted masonry or other suitable exterior materials, our aim is to remove unwanted markings while taking account of the underlying surface.",
   },
   {
     title: "Chewing Gum Removal",
     description:
-      "We provide thorough chewing gum removal services for both commercial and residential properties. Using advanced cleaning methods, we safely and efficiently eliminate chewing gum from surfaces without causing damage, ensuring a clean and welcoming environment.",
+      "Discarded chewing gum can leave stubborn marks on pavements, entrances and other regularly used outdoor areas. Our professional chewing gum removal service is suited to commercial premises, pedestrian areas, paved walkways and other suitable hard surfaces. Using specialist cleaning equipment and appropriate techniques, we help restore a cleaner, more welcoming appearance to high-footfall areas.",
   },
   {
     title: "Heritage Brickwork Care",
     description:
-      "Our heritage brickwork care service focuses on preserving the beauty and integrity of historic brick surfaces. We employ gentle cleaning methods and treatments, using specialized equipment to remove stains and organic growth while ensuring that the heritage value of the brickwork is maintained.",
+      "Historic and heritage brickwork requires careful consideration before cleaning. Our heritage brickwork care service focuses on selecting cleaning techniques appropriate for older masonry, taking account of the surface's condition and sensitivity. We use specialist equipment and measured cleaning approaches to address accumulated dirt and staining while prioritising the preservation of the original material.",
     href: "https://historicengland.org.uk/advice/technical-advice/buildings/",
   },
 ];
