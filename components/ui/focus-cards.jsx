@@ -1,51 +1,59 @@
 "use client";
-import Image from "next/image";
-import React, { useState } from "react";
-import { cn } from "@/lib/utils";
 
-export const Card = React.memo(({ card, index, hovered, setHovered }) => (
-  <div
-    // onMouseEnter={() => setHovered(index)}
-    // onMouseLeave={() => setHovered(null)}
-    className={cn(
-      "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
-      hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
-    )}
-  >
-    <Image
-      src={card.src}
-      alt={card.title}
-      fill
-      className="object-cover absolute inset-0"
-    />
-    <div
-      className={cn(
-        "absolute inset-0 bg-black/50 flex items-end py-8 px-4 transition-opacity duration-300",
-        hovered === index ? "opacity-100" : "opacity-0"
-      )}
-    >
-      <div className="text-xl md:text-2xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
-        {card.title}
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+
+export const Card = React.memo(({ card }) => {
+  return (
+    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900">
+      <figure className="relative h-60 w-full overflow-hidden md:h-96">
+        <Image
+          src={card.src}
+          alt={card.alt || card.title}
+          fill
+          loading="lazy"
+          quality={75}
+          sizes="(min-width: 1024px) 310px, (min-width: 768px) 30vw, 90vw"
+          className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.025] motion-reduce:transition-none"
+        />
+
+        <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-4 pb-5 pt-16">
+          <h3 className="text-lg font-semibold leading-snug text-white md:text-xl">
+            {card.title}
+          </h3>
+        </figcaption>
+      </figure>
+
+      <div className="flex flex-1 flex-col px-4 pb-5 pt-4">
+        {card.description && (
+          <p className="text-sm leading-6 text-gray-700 dark:text-neutral-300">
+            {card.description}
+          </p>
+        )}
+
+        {card.serviceLink && (
+          <Link
+            href={card.serviceLink.href}
+            className="mt-4 inline-flex w-fit items-center gap-2 text-sm font-semibold text-sky-700 underline underline-offset-4 transition-colors hover:text-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-600 dark:text-sky-300 dark:hover:text-sky-200"
+          >
+            {card.serviceLink.label}
+
+            <span aria-hidden="true">→</span>
+          </Link>
+        )}
       </div>
-    </div>
-  </div>
-));
+    </article>
+  );
+});
 
 Card.displayName = "Card";
 
 export function FocusCards({ cards }) {
-  const [hovered, setHovered] = useState(null);
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
-      {cards.map((card, index) => (
-        <Card
-          key={card.title}
-          card={card}
-          index={index}
-          hovered={hovered}
-          setHovered={setHovered}
-        />
+    <div className="grid grid-cols-1 gap-10 md:grid-cols-3 max-w-5xl mx-auto md:px-8 w-full">
+      {cards.map((card) => (
+        <Card key={card.src} card={card} />
       ))}
     </div>
   );

@@ -38,7 +38,7 @@ const features = [
   {
     title: "Service Overview",
     description:
-      "Our expert pressure washing services are tailored to restore and protect your outdoor surfaces, enhancing both their appearance and durability. Using advanced cleaning techniques, we ensure a thorough, safe clean for everything from driveways to delicate brickwork, leaving your property looking pristine and well-maintained.",
+      "ELA Pressure Washing provides specialist exterior cleaning for homes, businesses and commercial sites across Wolverhampton and the West Midlands. From driveway and patio cleaning to roof moss removal and more sensitive exterior surfaces, we assess the property and select cleaning techniques suited to the materials and work involved.",
     content: (
       <Image
         src="/assets/images/services/roofpro.svg"
@@ -54,7 +54,7 @@ const features = [
   {
     title: "Core Services",
     description:
-      "Offering high-pressure washing for tough surfaces, soft washing for delicate areas, steam cleaning for deep sanitation, and specialized care for heritage brickwork. Our services also include graffiti removal, chewing gum removal, surface sealing for protection, and roof scraping with biocide treatments to ensure long-lasting cleanliness and preservation.",
+      "Our services include pressure washing, soft washing, high-temperature steam cleaning, roof scraping and moss removal, and specialist heritage brickwork care. We also offer commercial exterior cleaning, graffiti and chewing gum removal, patio repointing, surface sealing and appropriate chemical or biocide treatments.",
     content: (
       <figure className="w-full">
         <video
@@ -77,7 +77,7 @@ const features = [
   {
     title: "Specialized Equipment and Expertise",
     description:
-      "Our fleet is equipped with multiple van-mounted systems, allowing us to operate high- or low-pressure steam without the need for an external water supply or electricity. We use only the highest-quality chemicals available, ensuring optimal results on the first pass. Our specialized heritage-certified machines enable us to safely clean listed and historic buildings. With over 10 years of experience in exterior cleaning and project management, we own all our equipment and maintain up-to-date risk assessments, method statements, and COSHH documents, ensuring compliance and safety at every job.",
+      "ELA has invested significantly in specialist van-mounted equipment, enabling high- and low-pressure steam cleaning without relying on an external water or electricity supply. Our experience includes work undertaken as a contractor for Wolverhampton City Council and exterior cleaning projects at retail parks nationwide, as well as residential work. With over 10 years of experience in exterior cleaning and project management, we use heritage-certified specialist equipment where appropriate and maintain risk assessments, method statements and COSHH documentation.",
     content: (
       <Image
         src="/assets/images/services/heritage.svg"
@@ -147,7 +147,7 @@ export function FeaturesWithStickyScroll() {
         </p>
       </div>
 
-      {/* Direct links to our six dedicated service pages */}
+      {/* Links to six dedicated service pages */}
       <div className="mx-auto mt-12 w-full max-w-5xl px-6">
         <h3 className="text-center text-xl font-bold text-white md:text-2xl">
           Explore Our Specialist Services
