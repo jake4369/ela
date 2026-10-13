@@ -5,6 +5,7 @@ export default function sitemap() {
     "",
     "/services",
     "/services/driveway-cleaning",
+    "/services/patio-cleaning",
     "/gallery",
     "/contact",
   ];
