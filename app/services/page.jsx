@@ -147,6 +147,12 @@ const content = [
     title: "Heritage Brickwork Care",
     description:
       "Historic and heritage brickwork requires careful consideration before cleaning. Our heritage brickwork care service focuses on selecting cleaning techniques appropriate for older masonry, taking account of the surface's condition and sensitivity. We use specialist equipment and measured cleaning approaches to address accumulated dirt and staining while prioritising the preservation of the original material.",
+    pageLinks: [
+      {
+        href: "/services/heritage-brickwork-cleaning",
+        text: "Explore our heritage brickwork cleaning service",
+      },
+    ],
     href: "https://historicengland.org.uk/advice/technical-advice/buildings/",
   },
 ];

@@ -9,6 +9,7 @@ export default function sitemap() {
     "/services/roof-cleaning",
     "/services/commercial-pressure-washing",
     "/services/steam-cleaning",
+    "/services/heritage-brickwork-cleaning",
     "/gallery",
     "/contact",
   ];
