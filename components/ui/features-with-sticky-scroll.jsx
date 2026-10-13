@@ -7,6 +7,33 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { IconInfoSquareRounded } from "@tabler/icons-react";
 import { HoverBorderGradient } from "./hover-border-gradient";
 
+const primaryServices = [
+  {
+    title: "Driveway Cleaning",
+    href: "/services/driveway-cleaning",
+  },
+  {
+    title: "Patio Cleaning",
+    href: "/services/patio-cleaning",
+  },
+  {
+    title: "Roof Cleaning & Moss Removal",
+    href: "/services/roof-cleaning",
+  },
+  {
+    title: "Commercial Pressure Washing",
+    href: "/services/commercial-pressure-washing",
+  },
+  {
+    title: "Professional Steam Cleaning",
+    href: "/services/steam-cleaning",
+  },
+  {
+    title: "Heritage Brickwork Cleaning",
+    href: "/services/heritage-brickwork-cleaning",
+  },
+];
+
 const features = [
   {
     title: "Service Overview",
@@ -117,6 +144,52 @@ export function FeaturesWithStickyScroll() {
         <p className="text-neutral-200 text-sm md:text-base max-w-md mx-auto mt-4">
           Explore our range of specialized cleaning and maintenance services
           designed to keep your outdoor spaces pristine and well-protected.
+        </p>
+      </div>
+
+      {/* Direct links to our six dedicated service pages */}
+      <div className="mx-auto mt-12 w-full max-w-5xl px-6">
+        <h3 className="text-center text-xl font-bold text-white md:text-2xl">
+          Explore Our Specialist Services
+        </h3>
+
+        <p className="mx-auto mt-3 max-w-xl text-center text-sm leading-6 text-neutral-300 md:text-base">
+          Find the cleaning service that best suits your property. Explore our
+          dedicated service pages to learn more about the work we offer.
+        </p>
+
+        <nav aria-label="Explore individual cleaning services" className="mt-8">
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {primaryServices.map((service) => (
+              <li key={service.href}>
+                <Link
+                  href={service.href}
+                  className="group flex min-h-[76px] h-full items-center justify-between gap-4 rounded-xl border border-slate-700 bg-slate-900/70 px-5 py-4 text-white transition-colors duration-200 hover:border-sky-400 hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400"
+                >
+                  <span className="text-sm font-semibold leading-6 md:text-base">
+                    {service.title}
+                  </span>
+
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 text-xl font-semibold text-sky-300 transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <p className="mt-6 text-center text-sm text-neutral-300">
+          Looking for another service?{" "}
+          <Link
+            href="/services"
+            className="font-semibold text-sky-300 underline underline-offset-4 hover:text-sky-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400"
+          >
+            View our complete range of services
+          </Link>
         </p>
       </div>
 
