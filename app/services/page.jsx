@@ -63,6 +63,12 @@ const content = [
     title: "High-Pressure Washing",
     description:
       "High-pressure washing is an effective way to remove stubborn dirt and surface contamination from suitable hard-wearing materials, including concrete, paving and some types of brickwork. Our professional pressure washing equipment can tackle heavily soiled driveways, patios, pedestrian areas and commercial outdoor spaces. We assess the material and condition of each surface before choosing an appropriate cleaning pressure and technique.",
+    pageLinks: [
+      {
+        href: "/services/commercial-pressure-washing",
+        text: "Explore our commercial pressure washing service",
+      },
+    ],
   },
   {
     title: "Exterior Steam Cleaning",
@@ -98,6 +104,12 @@ const content = [
     title: "Roof Moss Removal & Scraping",
     description:
       "Moss and organic debris can accumulate on roof tiles, particularly in shaded or damp conditions. Our roof scraping service focuses on carefully removing moss and loose buildup using methods appropriate for the roofing material and its condition. Removing this accumulation can improve the roof's appearance and help reduce debris entering gutters and drainage channels. Additional treatments may be recommended where suitable.",
+    pageLinks: [
+      {
+        href: "/services/roof-cleaning",
+        text: "Explore our roof cleaning and moss removal service",
+      },
+    ],
   },
   {
     title: "Biocide Treatments",
