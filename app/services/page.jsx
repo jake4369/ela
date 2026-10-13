@@ -74,6 +74,13 @@ const content = [
     title: "Exterior Steam Cleaning",
     description:
       "ELA Pressure Washing provides professional exterior steam cleaning for suitable hard surfaces and areas affected by stubborn grime. Our van-mounted equipment enables us to use high-temperature cleaning methods to help loosen and remove accumulated dirt, grease and surface contamination. Steam cleaning can be particularly useful where heat-assisted cleaning is appropriate, including selected paving, masonry and commercial exterior surfaces. We choose the cleaning method according to the material and the work required.",
+
+    pageLinks: [
+      {
+        href: "/services/steam-cleaning",
+        text: "Explore our professional steam cleaning service",
+      },
+    ],
   },
   {
     title: "Soft Washing",
