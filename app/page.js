@@ -9,7 +9,7 @@ import CTA from "@/components/cta/CTA";
 const pageTitle = "Pressure Washing & Exterior Cleaning in Wolverhampton | ELA";
 
 const pageDescription =
-  "Professional pressure washing, driveway cleaning, roof cleaning, steam cleaning and exterior surface restoration in Wolverhampton and the West Midlands. Contact ELA for a free quote.";
+  "Pressure washing, driveway, patio and roof cleaning, plus specialist steam cleaning in Wolverhampton and the West Midlands. Get a free quote.";
 
 export const metadata = {
   title: {
