@@ -6,6 +6,8 @@ export default function sitemap() {
     "/services",
     "/services/driveway-cleaning",
     "/services/patio-cleaning",
+    "/services/roof-cleaning",
+    "/services/commercial-pressure-washing",
     "/gallery",
     "/contact",
   ];
