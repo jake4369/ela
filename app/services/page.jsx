@@ -47,6 +47,8 @@ const content = [
     title: "Driveway, Patio & Exterior Cleaning",
     description:
       "Restore the appearance of your property's outdoor surfaces with professional exterior cleaning from ELA Pressure Washing. We clean driveways, patios, paths, walls and other suitable hard surfaces, removing built-up dirt, algae, moss and grime. Serving homes and businesses across Wolverhampton and the West Midlands, we select cleaning methods suited to the surface and its condition to achieve a thorough, professional finish.",
+    pageHref: "/services/driveway-cleaning",
+    pageLinkText: "Explore our driveway cleaning service",
   },
   {
     title: "High-Pressure Washing",
@@ -183,6 +185,18 @@ export default function Page() {
                 <p className={`text-base ${item.href ? "mb-4" : ""}`}>
                   {item.description}
                 </p>
+
+                {item.pageHref && (
+                  <Link
+                    href={item.pageHref}
+                    className="mt-4 inline-flex font-semibold text-sky-700 underline underline-offset-4 hover:text-sky-900 dark:text-sky-300 dark:hover:text-sky-200"
+                  >
+                    {item.pageLinkText}
+                    <span aria-hidden="true" className="ml-2">
+                      →
+                    </span>
+                  </Link>
+                )}
 
                 {item.href && (
                   <p>
