@@ -49,42 +49,52 @@ const products = [
   {
     id: 0,
     thumbnail: "/assets/images/hero/ela/hero.webp",
+    alt: "Large traditional red-brick building with stone architectural details and a black metal boundary fence",
   },
   {
     id: 1,
     thumbnail: "/assets/images/hero/ela/hero1.jpg",
+    alt: "Wide residential driveway leading to a red-brick house, with a gravel path and landscaped front garden",
   },
   {
     id: 2,
     thumbnail: "/assets/images/hero/ela/hero2.jpg",
+    alt: "Large dark residential driveway with contrasting brick-paved borders outside a detached house",
   },
   {
     id: 3,
     thumbnail: "/assets/images/hero/ela/hero3.jpg",
+    alt: "Wet black patterned driveway outside a residential property, with safety tape across the entrance",
   },
   {
     id: 4,
     thumbnail: "/assets/images/hero/ela/hero4.jpg",
+    alt: "Red-brick residential property with roof access equipment and an ELA Pressure Washing van outside",
   },
   {
     id: 6,
     thumbnail: "/assets/images/hero/ela/hero6.jpg",
+    alt: "ELA Pressure Washing operative using a cleaning lance on the Morville Street sign in Webheath",
   },
   {
     id: 5,
     thumbnail: "/assets/images/hero/ela/hero5.png",
+    alt: "Elevated view of a red-brick residential property with tiled roofs, a driveway and detached garages",
   },
   {
     id: 9,
     thumbnail: "/assets/images/hero/ela/hero9.jpg",
+    alt: "ELA Pressure Washing cleaning trailer parked beside a wet road junction during exterior cleaning work",
   },
   {
     id: 8,
     thumbnail: "/assets/images/hero/ela/hero8.jpg",
+    alt: "Clean-looking multicoloured stone-paved garden patio beside a house with glass doors and a conservatory",
   },
   {
     id: 7,
     thumbnail: "/assets/images/hero/ela/hero7.jpg",
+    alt: "ELA Pressure Washing operative cleaning a metal roller shutter door at commercial premises",
   },
 ];
 
